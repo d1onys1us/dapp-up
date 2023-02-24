@@ -18,6 +18,7 @@
 
 1. [Sign up for fleek and connect GitHub repo](https://fleek.xyz)
 2. Copy all `packages/app/.env` into Fleek project
+3. Enable preview deploys
 
 ## Common commands
 
