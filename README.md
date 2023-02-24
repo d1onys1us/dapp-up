@@ -10,8 +10,10 @@
 6. Load environment files: `source .env && source packages/app/.env`
 7. In three separate terminal windows run:
    a. Start local chain: `anvil -m $MNEMONIC`
-   b. Start app: `pnpm -F app dev`
-   c. Open blank terminal for using `cast` and git
+   b. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
+   c. Deploy the Foo contrcat: `forge script Deploy --broadcast --rpc-url $ANVIL`
+   d. Open blank terminal for using `cast` and git
+   e. Start app: `pnpm -F app dev`
 
 ## Deploy to fleek
 
