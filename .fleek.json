@@ -1,0 +1,8 @@
+{
+  "build": {
+    "image": "node:lts",
+    "command": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$PATH:~/.foundry/bin && foundryup && forge build && npm install -g pnpm && pnpm install && pnpm -F app build",
+    "publicDir": "dist",
+    "baseDir": "packages/app"
+  }
+}

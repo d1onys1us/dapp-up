@@ -1,0 +1,20 @@
+[profile.default]
+src = 'packages/contracts/src'
+test = 'packages/contracts/test'
+out = 'packages/contracts/out'
+script = 'packages/contracts/script'
+broadcast = 'packages/contracts/broadcast'
+cache_path = 'packages/contracts/cache'
+libs = ['packages/contracts/lib']
+solc = "0.8.18"
+
+[rpc_endpoints]
+sepolia = "${SEPOLIA}"
+anvil = "${ANVIL}"
+base = "${BASE}"
+taiko = "${TAIKO}"
+
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
