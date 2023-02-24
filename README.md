@@ -1,13 +1,14 @@
 # Quickstart
 
 1. Click "Use this template" > "Create a new repository" > "Create repository from template"
-2. Execute the setup script `sh setup.sh` (installs foundry deps, node deps, copies env files)
-3. [Obtain a mnemonic](https://iancoleman.io/bip39/) for test accounts.
+2. Clone repo (eg. `git clone https://github.com/repo_name`) and `cd <repo_name>`
+3. Execute the setup script `sh setup.sh` (installs foundry deps, node deps, copies env files)
+4. [Obtain a mnemonic](https://iancoleman.io/bip39/) for test accounts.
    a. Set mnemonic phrase in `packages/app.env`
-4. [Obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in).
+5. [Obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in).
    a. Set web3modal project id in `packages/app/.env`
-5. Load environment files: `source .env && source packages/app/.env`
-6. In three separate terminal windows run:
+6. Load environment files: `source .env && source packages/app/.env`
+7. In three separate terminal windows run:
    a. Start local chain: `anvil -m $MNEMONIC`
    b. Start app: `pnpm -F app dev`
    c. Open blank terminal for using `cast` and git

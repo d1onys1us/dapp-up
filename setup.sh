@@ -9,14 +9,14 @@ pnpm install
 
 # Copy .env.template files for foundry
 if [ ! -f .env ]; then
-    echo "Copying .env.template files for foundry and app..."
+    echo "Copying .env.template to .env... (foundry)"
     cp .env.template .env
 fi
 
 # Copy .env.template files for app
 if [ ! -f packages/app/.env ]; then
-    echo "Copying packages/app/.env.template to packages/.env..."
-    cp packages/apps.env.template packages/app/.env
+    echo "Copying packages/app/.env.template to packages/app/.env... (app)"
+    cp packages/app/.env.template packages/app/.env
 fi
 
 echo "Done!"
