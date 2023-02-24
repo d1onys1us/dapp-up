@@ -8,12 +8,13 @@
 5. [Obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in).
    a. Set web3modal project id in `packages/app/.env`
 6. Load environment files: `source .env && source packages/app/.env`
-7. In three separate terminal windows run:
-   a. Start local chain: `anvil -m $MNEMONIC`
-   b. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
-   c. Deploy the Foo contrcat: `forge script Deploy --broadcast --rpc-url $ANVIL`
-   d. Open blank terminal for using `cast` and git
-   e. Start app: `pnpm -F app dev`
+
+Now you're environment is ready to go! Use these commands to get started deploying a contract and start buidling.
+
+1. Start local chain: `anvil -m $MNEMONIC`
+2. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
+3. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $ANVIL`
+4. Start app: `pnpm -F app dev`
 
 ## Deploy to fleek
 
