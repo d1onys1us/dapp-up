@@ -1,0 +1,2 @@
+ds-test/=packages/contracts/lib/forge-std/lib/ds-test/src/
+forge-std/=packages/contracts/lib/forge-std/src/
