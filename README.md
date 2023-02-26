@@ -1,4 +1,15 @@
-# Quickstart
+## What's included
+
+A monorepo with:
+
+- Svelte frontend
+  - Auto-generated and fully-typed ABI's from wagmi-generate and Foundry plugin
+  - Web3modal connect button using wagmi core
+- Foundry backend
+  - Configurations for easy multi-chain deployments
+- Automated Fleek (IPFS) deployments
+
+## Quickstart
 
 1. Click "Use this template" > "Create a new repository" > "Create repository from template"
 2. Clone repo (eg. `git clone https://github.com/repo_name`) and `cd <repo_name>`
@@ -9,14 +20,14 @@
    a. Set web3modal project id in `packages/app/.env`
 6. Load environment files: `source .env && source packages/app/.env`
 
-Now you're environment is ready to go! Use these commands to get started deploying a contract and start buidling.
+Your environment is ready to go! Use these commands to get started deploying a contract and start buidling.
 
 1. Start local chain: `anvil -m $MNEMONIC`
 2. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
 3. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $ANVIL`
 4. Start app: `pnpm -F app dev`
 
-## Deploy to fleek
+## Deploy to Fleek
 
 > This will automatically deploy previews on branches as well.
 
@@ -29,7 +40,7 @@ Now you're environment is ready to go! Use these commands to get started deployi
 ### Start local anvil chain
 
 ```sh
-anvil -m $MNEMONIC
+anvil -m "$MNEMONIC"
 ```
 
 ### Get current block number with cast
@@ -43,16 +54,10 @@ cast block-number
 > Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
 
 ```sh
-forge script Deploy --broadcast --rpc-url $SEPOLIA
+forge script Deploy --broadcast --rpc-url "$SEPOLIA"
 ```
 
-### Re-generate ABIs from foundry
-
-```sh
-pnpm -F app wagmi-generate
-```
-
-### Watch contract deployment and automatically generate ABIs
+### Automatically generate ABIs from contract deployments
 
 ```sh
 pnpm wagmi generate --watch ../contracts/broadcast/
@@ -74,6 +79,6 @@ forge remappings > remappings.txt
 
 ## Troubleshooting
 
-- try reset account metamask
-- try clearing all browser storage
-- try disconnecting account and re-connecting
+- Reset account on Metamask
+- Clear all browser storage
+- Disconnect account and re-connect
