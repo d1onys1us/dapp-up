@@ -35,49 +35,35 @@
   $ethereumClient = new EthereumClient($wagmiClient, chains);
   $web3modal = new Web3Modal({ projectId }, $ethereumClient);
 
-  // todo: make this load from a store?
-  $wagmiClient.provider.getNetwork().then((network) => {
-    console.log("found a chainID:", network.chainId);
-  });
-
-  // define page routes
+  // Define page routes
   const routes = {
     "/": Home,
     "/not-home": NotHome,
   };
 </script>
 
-<main>
-  <div class="container mx-auto flex flex-col h-screen px-64">
-    <div class="navbar bg-base-100">
-      <div class="flex-none">
-        <a href="/" class="btn btn-ghost normal-case text-xl">DenverDapp</a>
-      </div>
-      <div class="flex-none">
-        <a href="/" use:link class="btn btn-ghost normal-case">Home</a>
-      </div>
-      <div class="flex-none">
-        <a href="/not-home" use:link class="btn btn-ghost normal-case"
-          >Not Home</a
-        >
-      </div>
-      <div class="flex-1" />
-      <div class="flex-none gap-2">
+<header>
+  <nav>
+    <li>
+      <a href="/" use:link>Create L2 Stack</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/" use:link>Home</a>
+      </li>
+      <li>
+        <a href="/not-home" use:link>Not Home</a>
+      </li>
+      <li>
         <w3m-network-switch />
+      </li>
+      <li>
         <w3m-core-button balance="show" icon="hide" />
-      </div>
-    </div>
-    <!-- Start main -->
-    <main class="flex flex items-center justify-center h-screen">
-      <div class="grid grid-cols-1">
-        <Router {routes} />
-      </div>
-    </main>
-    <!-- End main -->
-    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
-      <div>
-        <p>Made with ❤️‍🔥 for buidlers</p>
-      </div>
-    </footer>
-  </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <Router {routes} />
 </main>

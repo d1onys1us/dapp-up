@@ -37,20 +37,12 @@
   onMount(readMessage);
 </script>
 
-<div>
-  <h3>Message from contract: {messageFromContract}</h3>
-</div>
-<br />
-<div>
-  <div class="form-control">
-    <div class="input-group">
-      <input
-        type="text"
-        bind:value={inputMessage}
-        placeholder="Enter some text..."
-        class="input input-bordered"
-      />
-      <button class="btn" on:click={writeMessage}>WRITE</button>
-    </div>
-  </div>
-</div>
+<h3>Message from contract: {messageFromContract}</h3>
+<form>
+  <input
+    type="text"
+    bind:value={inputMessage}
+    placeholder="Enter some text..."
+  />
+  <input type="submit" value="Write" on:click={writeMessage} />
+</form>
