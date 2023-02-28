@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Run forge install
 echo "Installing forge dependencies..."
 forge install
