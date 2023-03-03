@@ -6,7 +6,7 @@
     writeContract,
   } from "@wagmi/core";
   import { onMount } from "svelte";
-  import { fooABI } from "../out/generated";
+  import { fooABI } from "../generated";
 
   // variables
   let inputMessage = "";
