@@ -1,15 +1,15 @@
+## Create your L2 dapp with one click
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build%3Aproduction&root-directory=packages%2Fapp)
+
 ## What's included
 
 - One click to launch dapp on Vercel
-- Svelte app
+- Svelte app (see why react is mids: https://component-party.dev/)
   - Auto-generated and fully-typed ABIs using wagmi-generate
   - Web3modal connect button using wagmi-core
 - Foundry contracts
   - Configured for easy multi-L2 deployments
-
-## Create your L2 dapp with one click
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build%3Aproduction&root-directory=packages%2Fapp)
 
 ## Manual setup
 
