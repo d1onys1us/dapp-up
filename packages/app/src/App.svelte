@@ -51,7 +51,7 @@
   <div class="container mx-auto flex flex-col h-screen px-64">
     <div class="navbar bg-base-100">
       <div class="flex-none">
-        <a href="/" class="btn btn-ghost normal-case text-xl">DenverDapp</a>
+        <a href="/" class="btn btn-ghost normal-case text-xl">L2 Dapp</a>
       </div>
       <div class="flex-none">
         <a href="/" use:link class="btn btn-ghost normal-case">Home</a>
