@@ -82,3 +82,4 @@ forge remappings > remappings.txt
 - Try reset account metamask
 - Try clearing all browser storage
 - Try disconnecting account and re-connecting
+- Make sure env vars are set
