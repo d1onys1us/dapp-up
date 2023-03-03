@@ -1,3 +1,5 @@
+IF YOU ARE HERE RN I AM FIXING THE DEPLOYMENT SO THIS IS BROKEN KTHXBAI SHOULD BE FIXED SOON.
+
 ## What's included
 
 - One click to launch dapp on Vercel
