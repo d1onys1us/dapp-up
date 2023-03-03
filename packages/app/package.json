@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "pnpm wagmi generate && vite build",
-    "build: production": "vite build",
+    "build:production": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "wagmi-generate": "pnpm wagmi generate"
