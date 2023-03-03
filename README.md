@@ -11,7 +11,7 @@ IF YOU ARE HERE RN I AM FIXING THE DEPLOYMENT SO THIS IS BROKEN KTHXBAI SHOULD B
 
 ## Create your L2 dapp with one click
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build%3Aproduction&output-directory=packages%2Fapp%2Fdist)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build%3Aproduction&root-directory=packages%2Fapp)
 
 ## Manual setup
 
