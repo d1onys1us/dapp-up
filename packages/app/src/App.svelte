@@ -35,12 +35,7 @@
   $ethereumClient = new EthereumClient($wagmiClient, chains);
   $web3modal = new Web3Modal({ projectId }, $ethereumClient);
 
-  // todo: make this load from a store?
-  $wagmiClient.provider.getNetwork().then((network) => {
-    console.log("found a chainID:", network.chainId);
-  });
-
-  // define page routes
+  // Define page routes
   const routes = {
     "/": Home,
     "/not-home": NotHome,
@@ -49,6 +44,7 @@
 
 <main>
   <div class="container mx-auto flex flex-col h-screen px-64">
+    <!-- Start navbar -->
     <div class="navbar bg-base-100">
       <div class="flex-none">
         <a href="/" class="btn btn-ghost normal-case text-xl">L2 Dapp</a>
@@ -67,6 +63,8 @@
         <w3m-core-button balance="show" icon="hide" />
       </div>
     </div>
+    <!-- End navbar -->
+
     <!-- Start main -->
     <main class="flex flex items-center justify-center h-screen">
       <div class="grid grid-cols-1">
@@ -74,10 +72,13 @@
       </div>
     </main>
     <!-- End main -->
+
+    <!-- Start footer -->
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
       <div>
         <p>Made with ❤️‍🔥 for buidlers</p>
       </div>
     </footer>
+    <!-- End footer -->
   </div>
 </main>

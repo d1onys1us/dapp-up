@@ -1,36 +1,24 @@
 <script lang="ts">
-  // imports
-  import {
-    readContract,
-    prepareWriteContract,
-    writeContract,
-  } from "@wagmi/core";
   import { onMount } from "svelte";
-  import { fooABI } from "../generated";
+  import { readFoo, prepareWriteFoo, writeFoo } from "../generated";
 
   // variables
   let inputMessage = "";
   let messageFromContract = "";
-  const fooAddress = import.meta.env.VITE_FOO_ADDRESS;
 
   // functions
   async function readMessage() {
-    const data = await readContract({
-      address: fooAddress,
-      abi: fooABI,
+    messageFromContract = await readFoo({
       functionName: "myString",
     });
-    messageFromContract = data;
   }
 
   async function writeMessage() {
-    const config = await prepareWriteContract({
-      address: fooAddress,
-      abi: fooABI,
+    const config = await prepareWriteFoo({
       functionName: "setMyString",
       args: [inputMessage],
     });
-    await writeContract(config);
+    await writeFoo(config);
     readMessage();
   }
 
