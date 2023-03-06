@@ -1,10 +1,12 @@
 #!/bin/bash
 
+set -e
+
 # Run forge install
 echo "Installing forge dependencies..."
 forge install
 
-echo "Installing node dependencies with pnpm..."
+echo "Installing node dependencies..."
 pnpm install
 
 # Copy .env.example files for foundry
