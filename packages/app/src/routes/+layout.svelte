@@ -33,8 +33,15 @@
     </ul>
     <ul>
       <li><a href="/another-page">Another page</a></li>
-      <li><w3m-network-switch /></li>
-      <li><w3m-core-button balance="show" icon="hide" /></li>
+      {#if import.meta.env.MODE === "development"}
+        <li><w3m-network-switch /></li>
+      {/if}
+      <li>
+        <w3m-core-button
+          balance={import.meta.env.MODE === "development" ? "show" : "hide"}
+          icon="hide"
+        />
+      </li>
     </ul>
   </nav>
 </header>
