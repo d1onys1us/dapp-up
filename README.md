@@ -1,6 +1,6 @@
 ## Create your L2 dapp with one click
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build%3Aproduction&root-directory=packages%2Fapp)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build&root-directory=packages%2Fapp)
 
 ## What's included
 
@@ -82,3 +82,4 @@ forge remappings > remappings.txt
 - Try reset account metamask
 - Try clearing all browser storage
 - Try disconnecting account and re-connecting
+- Make sure env vars are set
