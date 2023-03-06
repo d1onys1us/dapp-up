@@ -1,11 +1,11 @@
 ## Create your L2 dapp with one click
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&build-command=pnpm%20-F%20app%20build&root-directory=packages%2Fapp)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&root-directory=packages%2Fapp)
 
 ## What's included
 
 - One click to launch dapp on Vercel
-- Svelte app (see why react is mids: https://component-party.dev/)
+- Svelte app
   - Auto-generated and fully-typed ABIs using wagmi-generate
   - Web3modal connect button using wagmi-core
 - Foundry contracts
@@ -17,7 +17,7 @@
 2. Clone repo (eg. `git clone https://github.com/repo_name`) and `cd <repo_name>`
 3. Execute the setup script `sh setup.sh` (installs foundry deps, node deps, copies env files)
 4. [Obtain a mnemonic](https://iancoleman.io/bip39/) for test accounts.
-   a. Set mnemonic phrase in `packages/app/.env`
+   a. Set mnemonic phrase in `packages/.env`
 5. [Obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in).
    a. Set web3modal project id in `packages/app/.env`
 6. Load environment files: `source .env && source packages/app/.env`
