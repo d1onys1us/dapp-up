@@ -1,5 +1,6 @@
 import { defineConfig } from "@wagmi/cli";
-import { foundry, actions } from "@wagmi/cli/plugins";
+// import { actions } from "@wagmi/cli/plugins";
+import { foundry } from "@wagmi/cli/plugins";
 import * as chains from "@wagmi/core/chains";
 import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
 import goerliJson from "../contracts/broadcast/Deploy.s.sol/5/run-latest.json"

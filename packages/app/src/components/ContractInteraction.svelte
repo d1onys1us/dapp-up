@@ -1,6 +1,6 @@
 <script lang="ts">
   // imports
-  import { readContract, prepareWriteContract, writeContract, getNetwork } from "@wagmi/core";
+  import { readContract, prepareWriteContract, writeContract } from "@wagmi/core";
   import { onMount } from "svelte";
   import { fooABI, fooAddress } from "../generated";
 
