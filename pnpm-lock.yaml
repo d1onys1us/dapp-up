@@ -5,7 +5,7 @@ importers:
   .:
     specifiers: {}
 
-  packages/web-app:
+  packages/app:
     specifiers:
       '@picocss/pico': ^1.5.7
       '@sveltejs/adapter-auto': ^2.0.0
