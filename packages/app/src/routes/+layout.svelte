@@ -9,7 +9,7 @@
 
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
   const chains = [mainnet, goerli, sepolia, foundry, base, taiko];
-  const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
+  const connectors = modalConnectors({ projectId, version: "2", appName: "web3Modal", chains });
   const { provider } = configureChains(chains, [walletConnectProvider({ projectId })]);
 
   // @ts-ignore TODO: fix this
