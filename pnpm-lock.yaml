@@ -13,7 +13,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.45.0
       '@typescript-eslint/parser': ^5.45.0
       '@wagmi/cli': ^0.1.11
-      '@wagmi/core': ^0.9.6
+      '@wagmi/core': 0.9.6
       '@web3modal/ethereum': ^2.1.3
       '@web3modal/html': ^2.1.3
       buffer: ^6.0.3
@@ -30,8 +30,8 @@ importers:
       vite: ^4.0.0
     dependencies:
       '@picocss/pico': 1.5.7
-      '@wagmi/core': 0.9.7_apnpkfzynlr2iok3waemyv4d5q
-      '@web3modal/ethereum': 2.1.3_s5q72wmkdehf4mjfxv6ejbfnfa
+      '@wagmi/core': 0.9.6_apnpkfzynlr2iok3waemyv4d5q
+      '@web3modal/ethereum': 2.1.3_zsa25jcyikvkd7ythuq4vheuny
       '@web3modal/html': 2.1.3_react@18.2.0
       buffer: 6.0.3
       ethers: 5.7.2
@@ -40,7 +40,7 @@ importers:
       '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
       '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
       '@typescript-eslint/parser': 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
-      '@wagmi/cli': 0.1.11_pu6txfwzgnwdpxctgd2bh7y3hq
+      '@wagmi/cli': 0.1.11_rlomfb4g6pxnye533ypls2hlrq
       eslint: 8.35.0
       eslint-config-prettier: 8.6.0_eslint@8.35.0
       eslint-plugin-svelte3: 4.0.0_n4ieifq2d7jq3sqoe474cgqlim
@@ -1431,6 +1431,16 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
+  /@wagmi/chains/0.2.8_typescript@4.9.5:
+    resolution: {integrity: sha512-owGdAL75bE0JOzVTm5SOci458RrdD+FTJ6D238A+0VV9SQCz5N8vK9VBxhcEKXexjhzMM+CJZqFBTyxNsmNlLw==}
+    peerDependencies:
+      typescript: '>=4.9.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 4.9.5
+
   /@wagmi/chains/0.2.9_typescript@4.9.5:
     resolution: {integrity: sha512-z0Nv7Cto+t/47NtC8td7khMSWX0zKVCnm8gkgrRs9PHvN+4W7XZfUVQYfhIfkbelT/ONN9V1OA+ho122gmRr3Q==}
     peerDependencies:
@@ -1440,8 +1450,9 @@ packages:
         optional: true
     dependencies:
       typescript: 4.9.5
+    dev: true
 
-  /@wagmi/cli/0.1.11_pu6txfwzgnwdpxctgd2bh7y3hq:
+  /@wagmi/cli/0.1.11_rlomfb4g6pxnye533ypls2hlrq:
     resolution: {integrity: sha512-JW4WWLgTwXWwRqU+hrWiRDXFNCV18WI5vbMa2KZgtI+jqBlPJYivHUpmwejnOrXSlfbow9wAFuuCA00foxd3RQ==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1459,7 +1470,7 @@ packages:
     dependencies:
       '@ethersproject/address': 5.7.0
       '@wagmi/chains': 0.2.9_typescript@4.9.5
-      '@wagmi/core': 0.9.7_apnpkfzynlr2iok3waemyv4d5q
+      '@wagmi/core': 0.9.6_apnpkfzynlr2iok3waemyv4d5q
       abitype: 0.3.0_s5a4hkrp2nhfstaykkygfysafe
       abort-controller: 3.0.0
       bundle-require: 3.1.2_esbuild@0.15.13
@@ -1484,8 +1495,8 @@ packages:
       zod: 3.21.1
     dev: true
 
-  /@wagmi/connectors/0.2.7_qxqddfvow4bs7t65ev3feclj6m:
-    resolution: {integrity: sha512-9l5XBlaO7AGukvIbgLj3L1VMbRvHmwQTu36t0mQRE90LHzqP45/BK9BtrpUI8DjdmIMwQ+omMqSqBuhawT5Zwg==}
+  /@wagmi/connectors/0.2.6_e4mkf2jyqtwu2s53qzqzz65sji:
+    resolution: {integrity: sha512-I7tsKgbwF6o5aUu6gQk4YMo7fe3iLAgmbFT06/FHlSLKIxI16qkKwjTt04k9WhdDRDYaJH+DqUEyam1jP+jvIg==}
     peerDependencies:
       '@wagmi/core': '>=0.9.x'
       ethers: '>=5.5.1 <6'
@@ -1500,7 +1511,7 @@ packages:
       '@ledgerhq/connect-kit-loader': 1.0.2
       '@safe-global/safe-apps-provider': 0.15.2
       '@safe-global/safe-apps-sdk': 7.10.0
-      '@wagmi/core': 0.9.7_apnpkfzynlr2iok3waemyv4d5q
+      '@wagmi/core': 0.9.6_apnpkfzynlr2iok3waemyv4d5q
       '@walletconnect/ethereum-provider': 1.8.0
       '@walletconnect/universal-provider': 2.3.3_alpjt73dvgv6kni625hu7f2l4m
       '@web3modal/standalone': 2.1.1_react@18.2.0
@@ -1523,8 +1534,8 @@ packages:
       - utf-8-validate
       - zod
 
-  /@wagmi/core/0.9.7_apnpkfzynlr2iok3waemyv4d5q:
-    resolution: {integrity: sha512-9NYoxpEM+sYAv0Jg3DvMbWTnJguPwiqs61382ATU5dqMsYF1v17ngg6S15gg8oIv9Y7nYrLsiFsQ9qkNYzKlJA==}
+  /@wagmi/core/0.9.6_apnpkfzynlr2iok3waemyv4d5q:
+    resolution: {integrity: sha512-TGAnA9sNjm3s8evBVxN3yRjZqKGBlhFW1Bk2nX1C1UtlrA5uTIPDWGxHw0CAPmSnE4MLL89Um4JA12jubNqLZg==}
     peerDependencies:
       ethers: '>=5.5.1 <6'
       typescript: '>=4.9.4'
@@ -1532,8 +1543,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@wagmi/chains': 0.2.9_typescript@4.9.5
-      '@wagmi/connectors': 0.2.7_qxqddfvow4bs7t65ev3feclj6m
+      '@wagmi/chains': 0.2.8_typescript@4.9.5
+      '@wagmi/connectors': 0.2.6_e4mkf2jyqtwu2s53qzqzz65sji
       abitype: 0.3.0_typescript@4.9.5
       ethers: 5.7.2
       eventemitter3: 4.0.7
@@ -1964,13 +1975,13 @@ packages:
       - react
     dev: false
 
-  /@web3modal/ethereum/2.1.3_s5q72wmkdehf4mjfxv6ejbfnfa:
+  /@web3modal/ethereum/2.1.3_zsa25jcyikvkd7ythuq4vheuny:
     resolution: {integrity: sha512-LUYAKP4FCjyQkyuo8luLWa6D40p23R+GBkc35Yrlgkc8f1c9ZbeAMkg6D3HD4A0KsacALfVcf/AQrDD35fZM2A==}
     peerDependencies:
       '@wagmi/core': '>=0.9'
       ethers: '>=5.7'
     dependencies:
-      '@wagmi/core': 0.9.7_apnpkfzynlr2iok3waemyv4d5q
+      '@wagmi/core': 0.9.6_apnpkfzynlr2iok3waemyv4d5q
       ethers: 5.7.2
     dev: false
 
