@@ -13,7 +13,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.45.0
       '@typescript-eslint/parser': ^5.45.0
       '@wagmi/cli': ^0.1.11
-      '@wagmi/core': ^0.9.3
+      '@wagmi/core': ^0.9.7
       '@web3modal/ethereum': ^2.1.3
       '@web3modal/html': ^2.1.3
       buffer: ^6.0.3
