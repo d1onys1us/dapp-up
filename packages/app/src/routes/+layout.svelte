@@ -33,9 +33,9 @@
     </ul>
     <ul>
       <li><a href="/another-page">Another page</a></li>
-      {#if import.meta.env.MODE === "development"}
-        <li><w3m-network-switch /></li>
-      {/if}
+      <!-- {#if import.meta.env.MODE === "development"} -->
+      <li><w3m-network-switch /></li>
+      <!-- {/if} -->
       <li>
         <w3m-core-button
           balance={import.meta.env.MODE === "development" ? "show" : "hide"}
