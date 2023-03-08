@@ -1,18 +1,34 @@
 <script lang="ts">
   import "@picocss/pico/css/pico.min.css";
   import { base, taiko } from "../domain/chain";
-  import { ethereumClient, wagmiClient, web3Modal } from "../stores";
+  import { ethereumClient, wagmiClient, web3Modal, providers } from "../stores";
   import { configureChains, createClient } from "@wagmi/core";
   import { mainnet, goerli, sepolia, foundry } from "@wagmi/core/chains";
-  import { EthereumClient, modalConnectors, walletConnectProvider } from "@web3modal/ethereum";
+  import { EthereumClient, modalConnectors } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
+  import { ethers } from "ethers";
+  import { jsonRpcProvider } from "@wagmi/core/providers/jsonRpc";
 
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
-  const chains = [mainnet, goerli, sepolia, foundry, base, taiko];
-  const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
-  const { provider } = configureChains(chains, [walletConnectProvider({ projectId })]);
 
-  // @ts-ignore TODO: fix this
+  $providers = {
+    [mainnet.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_MAINNET_RPC),
+    [goerli.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_GOERLI_RPC),
+    [sepolia.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_SEPOLIA_RPC),
+    [foundry.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_FOUNDRY_RPC),
+    [taiko.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_TAIKO_RPC),
+  };
+  const { chains, provider } = configureChains(
+    [mainnet, goerli, sepolia, foundry, taiko],
+    [
+      jsonRpcProvider({
+        rpc: (chain) => ({ http: $providers[chain.id].connection.url }),
+      }),
+    ]
+  );
+  const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
+
+  // @ts-ignore
   $wagmiClient = createClient({
     autoConnect: true,
     connectors,
@@ -32,7 +48,7 @@
       <li><a href="/">Home</a></li>
     </ul>
     <ul>
-      <li><a href="/another-page">Another page</a></li>
+      <li><a href="/signal-service">Signal service</a></li>
       {#if import.meta.env.MODE === "development"}
         <li><w3m-network-switch /></li>
       {/if}

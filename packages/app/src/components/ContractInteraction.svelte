@@ -11,7 +11,7 @@
   // functions
   async function readMessage() {
     const data = await readContract({
-      address: fooAddress[31337],
+      address: fooAddress[167002],
       abi: fooABI,
       functionName: "myString",
     });
@@ -20,7 +20,7 @@
 
   async function writeMessage() {
     const config = await prepareWriteContract({
-      address: fooAddress[31337],
+      address: fooAddress[167002],
       abi: fooABI,
       functionName: "setMyString",
       args: [inputMessage],

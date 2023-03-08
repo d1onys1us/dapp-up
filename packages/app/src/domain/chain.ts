@@ -5,9 +5,9 @@ export const base = {
     name: "Base",
     network: "Base Goerli",
     nativeCurrency: {
-      decimals: 18,
       name: "Ether",
       symbol: "ETH",
+      decimals: 18,
     },
     rpcUrls: {
       public: {
@@ -20,27 +20,28 @@ export const base = {
   } as const satisfies Chain;
 
 export const taiko = {
-  id: 167001,
+  id: 167002,
   name: "Taiko",
-  network: "Askja (Alpha-2)",
+  network: "askja",
   nativeCurrency: {
-    decimals: 18,
-    name: "Ether",
+    name: "Taiko Ether",
     symbol: "ETH",
+    decimals: 18,
   },
   rpcUrls: {
     public: {
-      http: ["https://l2rpc.a2.taiko.xyz"],
+      http: ["https://l2rpc.hackathon.taiko.xyz"],
     },
     default: {
-      http: ["https://l2rpc.a2.taiko.xyz"],
+      http: ["https://l2rpc.hackathon.taiko.xyz"],
     },
   },
   blockExplorers: {
     default: {
       name: "L2 Explorer",
-      url: "https://l2explorer.a2.taiko.xyz",
+      url: "https://l2explorer.hackathon.taiko.xyz",
     },
   },
+  testnet: true,
 } as const satisfies Chain;
 
