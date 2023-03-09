@@ -49,14 +49,9 @@
     </ul>
     <ul>
       <li><a href="/signal-service">Signal service</a></li>
-      {#if import.meta.env.MODE === "development"}
-        <li><w3m-network-switch /></li>
-      {/if}
+      <li><w3m-network-switch /></li>
       <li>
-        <w3m-core-button
-          balance={import.meta.env.MODE === "development" ? "show" : "hide"}
-          icon="hide"
-        />
+        <w3m-core-button balance="show" icon="hide" />
       </li>
     </ul>
   </nav>
