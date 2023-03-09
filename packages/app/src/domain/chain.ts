@@ -1,23 +1,23 @@
 import type { Chain } from "@wagmi/core";
 
 export const base = {
-    id: 84531,
-    name: "Base",
-    network: "Base Goerli",
-    nativeCurrency: {
-      name: "Ether",
-      symbol: "ETH",
-      decimals: 18,
+  id: 84531,
+  name: "Base",
+  network: "Base Goerli",
+  nativeCurrency: {
+    name: "Ether",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  rpcUrls: {
+    public: {
+      http: ["https://goerli.base.org"],
     },
-    rpcUrls: {
-      public: {
-        http: ["https://goerli.base.org"],
-      },
-      default: {
-        http: ["https://goerli.base.org"],
-      },
+    default: {
+      http: ["https://goerli.base.org"],
     },
-  } as const satisfies Chain;
+  },
+} as const satisfies Chain;
 
 export const taiko = {
   id: 167002,
@@ -44,4 +44,3 @@ export const taiko = {
   },
   testnet: true,
 } as const satisfies Chain;
-

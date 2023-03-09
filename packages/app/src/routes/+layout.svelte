@@ -68,4 +68,4 @@
 </main>
 
 <!-- Footer -->
-<footer class="container">A footer</footer>
+<!-- <footer class="container">A footer</footer> -->

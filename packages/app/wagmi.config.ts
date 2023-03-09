@@ -19,7 +19,7 @@ export default defineConfig({
       abi: signalServiceABI as Abi,
       address: {
         [chains.sepolia.id]: "0xe40D5bedD2f3d9F288CC12c69463bC43c77488d6",
-        [chains.taiko.id]: "0x0000777700000000000000000000000000000007",
+        [chains.taiko.id]: "0x191E3D5a00d54799D7da6c04d56b19938304c312",
       },
     },
     {
