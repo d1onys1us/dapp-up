@@ -42,8 +42,6 @@
       false,
     ]);
 
-    const logsBloom = block.logsBloom.toString().substring(2);
-
     const blockHeader: BlockHeader = {
       parentHash: block.parentHash,
       ommersHash: block.sha3Uncles,
@@ -51,7 +49,11 @@
       stateRoot: block.stateRoot,
       transactionsRoot: block.transactionsRoot,
       receiptsRoot: block.receiptsRoot,
-      logsBloom: logsBloom.match(/.{1,64}/g)!.map((s: string) => "0x" + s),
+      logsBloom: block.logsBloom
+        .toString()
+        .substring(2)
+        .match(/.{1,64}/g)!
+        .map((s: string) => "0x" + s),
       difficulty: block.difficulty,
       height: block.number,
       gasLimit: block.gasLimit,
