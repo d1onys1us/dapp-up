@@ -1,9 +1,9 @@
 <script lang="ts">
   import "@picocss/pico/css/pico.min.css";
-  import { base, taiko } from "../domain/chain";
+  import { taiko } from "../domain/chain";
   import { ethereumClient, wagmiClient, web3Modal, providers } from "../stores";
   import { configureChains, createClient } from "@wagmi/core";
-  import { mainnet, goerli, sepolia } from "@wagmi/core/chains";
+  import { sepolia } from "@wagmi/core/chains";
   import { EthereumClient, modalConnectors } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
   import { ethers } from "ethers";
@@ -11,31 +11,28 @@
 
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
 
-  // $providers = {
-  //   [mainnet.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_MAINNET_RPC),
-  //   [goerli.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_GOERLI_RPC),
-  //   [sepolia.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_SEPOLIA_RPC),
-  //   // [foundry.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_FOUNDRY_RPC),
-  //   [taiko.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_TAIKO_RPC),
-  // };
-  // const { chains, provider } = configureChains(
-  //   [mainnet, goerli, sepolia, taiko],
-  //   [
-  //     jsonRpcProvider({
-  //       rpc: (chain) => ({ http: $providers[chain.id].connection.url }),
-  //     }),
-  //   ]
-  // );
-  // const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
+  $providers = {
+    [sepolia.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_SEPOLIA_RPC),
+    [taiko.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_TAIKO_RPC),
+  };
+  const { chains, provider } = configureChains(
+    [sepolia, taiko],
+    [
+      jsonRpcProvider({
+        rpc: (chain) => ({ http: $providers[chain.id].connection.url }),
+      }),
+    ]
+  );
+  const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
 
-  // // @ts-ignore
-  // $wagmiClient = createClient({
-  //   autoConnect: true,
-  //   connectors,
-  //   provider,
-  // });
-  // $ethereumClient = new EthereumClient($wagmiClient, chains);
-  // $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
+  // @ts-ignore
+  $wagmiClient = createClient({
+    autoConnect: true,
+    connectors,
+    provider,
+  });
+  $ethereumClient = new EthereumClient($wagmiClient, chains);
+  $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
 </script>
 
 <!-- Header -->
@@ -46,10 +43,10 @@
     </ul>
     <ul>
       <li><a href="/signal-service">Signal service</a></li>
-      <!-- <li><w3m-network-switch /></li>
+      <li><w3m-network-switch /></li>
       <li>
         <w3m-core-button balance="show" icon="hide" />
-      </li> -->
+      </li>
     </ul>
   </nav>
 </header>
