@@ -15,11 +15,11 @@
     [mainnet.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_MAINNET_RPC),
     [goerli.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_GOERLI_RPC),
     [sepolia.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_SEPOLIA_RPC),
-    [foundry.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_FOUNDRY_RPC),
+    // [foundry.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_FOUNDRY_RPC),
     [taiko.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_TAIKO_RPC),
   };
   const { chains, provider } = configureChains(
-    [mainnet, goerli, sepolia, foundry, taiko],
+    [mainnet, goerli, sepolia, taiko],
     [
       jsonRpcProvider({
         rpc: (chain) => ({ http: $providers[chain.id].connection.url }),
