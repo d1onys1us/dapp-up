@@ -115,25 +115,32 @@
   }
 </script>
 
+<!-- start template -->
+<section>
+  <u>
+    <strong>
+      Note: You will need to wait ~5 minutes for the signal to be received on Taiko because of our
+      current configured L2 block derivation time.
+    </strong>
+  </u>
+</section>
+
 <section>
   <form>
-    <input
-      type="text"
-      placeholder="Enter a signal to store on this chain..."
-      bind:value={srcChainSignal}
-    />
+    <div>Enter a signal to store on Sepolia:</div>
+    <input type="text" placeholder="A signal..." bind:value={srcChainSignal} />
     <input type="submit" value="Send signal" on:click={sendSignal} />
   </form>
 </section>
 
 <section>
   <form>
-    <div>Is signal received: {isSignalReceivedMessage}</div>
-    <input
-      type="text"
-      placeholder="Enter a signal to verify on Taiko..."
-      bind:value={signalToVerify}
-    />
-    <input type="submit" value="Verify signal received" on:click={isSignalReceived} />
+    <div>Enter a signal to check is received on Taiko:</div>
+    <input type="text" placeholder="A signal..." bind:value={signalToVerify} />
+    <input type="submit" value="Is signal received" on:click={isSignalReceived} />
   </form>
+</section>
+
+<section>
+  <div>Is signal received: <strong>{isSignalReceivedMessage}</strong></div>
 </section>
