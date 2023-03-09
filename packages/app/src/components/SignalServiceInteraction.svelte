@@ -119,12 +119,13 @@
 
 <!-- start template -->
 <section>
-  <u>
-    <strong>
-      Note: You will need to wait ~5 minutes for the signal to be received on Taiko because of our
-      current configured L2 block derivation time.
-    </strong>
-  </u>
+  <strong> Steps: </strong>
+  <ol>
+    <li>Connect to Sepolia</li>
+    <li>Send a signal</li>
+    <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
+    <li>Check if signal is received on Taiko</li>
+  </ol>
 </section>
 
 <section>
