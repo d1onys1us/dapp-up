@@ -3,7 +3,7 @@
   import { base, taiko } from "../domain/chain";
   import { ethereumClient, wagmiClient, web3Modal, providers } from "../stores";
   import { configureChains, createClient } from "@wagmi/core";
-  import { mainnet, goerli, sepolia, foundry } from "@wagmi/core/chains";
+  import { mainnet, goerli, sepolia } from "@wagmi/core/chains";
   import { EthereumClient, modalConnectors } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
   import { ethers } from "ethers";
