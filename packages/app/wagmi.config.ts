@@ -1,8 +1,8 @@
 import { defineConfig } from "@wagmi/cli";
-// import { foundry } from "@wagmi/cli/plugins";
+import { foundry } from "@wagmi/cli/plugins";
 import * as wagmiChains from "@wagmi/core/chains";
 import { base, taiko } from "./src/domain/chain";
-// import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
+import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
 import goerliJson from "../contracts/broadcast/Deploy.s.sol/5/run-latest.json";
 import sepoliaJson from "../contracts/broadcast/Deploy.s.sol/11155111/run-latest.json";
 import taikoJson from "../contracts/broadcast/Deploy.s.sol/167002/run-latest.json";
@@ -31,16 +31,16 @@ export default defineConfig({
     },
   ],
   plugins: [
-    // foundry({
-    //   deployments: {
-    //     Foo: {
-    //       // [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
-    //       [chains.goerli.id]: goerliJson.transactions[0].contractAddress as `0x${string}`,
-    //       [chains.sepolia.id]: sepoliaJson.transactions[0].contractAddress as `0x${string}`,
-    //       [chains.taiko.id]: taikoJson.transactions[0].contractAddress as `0x${string}`,
-    //     },
-    //   },
-    //   project: "../../",
-    // }),
+    foundry({
+      deployments: {
+        Foo: {
+          [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
+          [chains.goerli.id]: goerliJson.transactions[0].contractAddress as `0x${string}`,
+          [chains.sepolia.id]: sepoliaJson.transactions[0].contractAddress as `0x${string}`,
+          [chains.taiko.id]: taikoJson.transactions[0].contractAddress as `0x${string}`,
+        },
+      },
+      project: "../../",
+    }),
   ],
 });
