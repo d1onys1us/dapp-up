@@ -4,4 +4,6 @@
 
 {#if import.meta.env.MODE === "development"}
   <ContractInteraction />
+{:else}
+  <h1>Just a home page brah.</h1>
 {/if}
