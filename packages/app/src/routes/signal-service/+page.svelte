@@ -1,5 +1,5 @@
 <script>
-  import SignalService from "../../components/SignalService.svelte";
+  import SignalServiceInteraction from "../../components/SignalServiceInteraction.svelte";
 </script>
 
-<SignalService />
+<SignalServiceInteraction />
