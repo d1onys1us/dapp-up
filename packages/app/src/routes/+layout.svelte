@@ -35,10 +35,7 @@
     provider,
   });
   $ethereumClient = new EthereumClient($wagmiClient, chains);
-  $web3Modal = new Web3Modal(
-    { projectId, defaultChain: import.meta.env.MODE === "development" ? foundry : mainnet },
-    $ethereumClient
-  );
+  $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
 </script>
 
 <!-- Header -->
