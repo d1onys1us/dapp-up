@@ -29,6 +29,8 @@
 
 ## Start the development environment
 
+> You will have three development windows, start them all and source all .env files.
+
 1. Start local chain: `anvil -m $MNEMONIC`
 2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi`
 3. Start app: `pnpm -F app dev`
