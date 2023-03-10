@@ -1,28 +1,42 @@
 import { defineConfig } from "@wagmi/cli";
-// import { actions } from "@wagmi/cli/plugins";
 import { foundry } from "@wagmi/cli/plugins";
-import * as chains from "@wagmi/core/chains";
+import * as wagmiChains from "@wagmi/core/chains";
+import { base, taiko } from "./src/domain/chain";
 import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
-import goerliJson from "../contracts/broadcast/Deploy.s.sol/5/run-latest.json"
-import sepoliaJson from "../contracts/broadcast/Deploy.s.sol/11155111/run-latest.json"
+import sepoliaJson from "../contracts/broadcast/Deploy.s.sol/11155111/run-latest.json";
+import taikoJson from "../contracts/broadcast/Deploy.s.sol/167002/run-latest.json";
+import { headerSyncABI, signalServiceABI } from "./src/abi";
+import { Abi } from "abitype";
+
+const chains = { ...wagmiChains, base, taiko };
 
 export default defineConfig({
   out: "src/generated.ts",
+  contracts: [
+    {
+      name: "SignalService",
+      abi: signalServiceABI as Abi,
+      address: {
+        [chains.sepolia.id]: "0xe40D5bedD2f3d9F288CC12c69463bC43c77488d6",
+        [chains.taiko.id]: "0x191E3D5a00d54799D7da6c04d56b19938304c312",
+      },
+    },
+    {
+      name: "TaikoL2",
+      abi: headerSyncABI as Abi, // only using headerSyncABI for now
+      address: {
+        [chains.taiko.id]: "0x0000777700000000000000000000000000000001",
+      },
+    },
+  ],
   plugins: [
-    // see bug: https://github.com/wagmi-dev/wagmi/issues/1945
-    // actions({
-    //   readContract: true,
-    //   prepareWriteContract: true,
-    //   writeContract: true,
-    // }),
     foundry({
       deployments: {
-        // TODO: this can be improved
         Foo: {
           [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
-          [chains.goerli.id]: goerliJson.transactions[0].contractAddress as `0x${string}`,
           [chains.sepolia.id]: sepoliaJson.transactions[0].contractAddress as `0x${string}`,
-        }
+          [chains.taiko.id]: taikoJson.transactions[0].contractAddress as `0x${string}`,
+        },
       },
       project: "../../",
     }),

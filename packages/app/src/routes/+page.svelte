@@ -2,6 +2,5 @@
   import ContractInteraction from "../components/ContractInteraction.svelte";
 </script>
 
-{#if import.meta.env.MODE === "development"}
-  <ContractInteraction />
-{/if}
+<h3>The home page</h3>
+<ContractInteraction />

@@ -3,15 +3,16 @@
   import { readContract, prepareWriteContract, writeContract } from "@wagmi/core";
   import { onMount } from "svelte";
   import { fooABI, fooAddress } from "../generated";
+  import { foundry } from "@wagmi/core/chains";
 
   // variables
   let inputMessage = "";
-  let messageFromContract = "placeholder";
+  let messageFromContract = "";
 
   // functions
   async function readMessage() {
     const data = await readContract({
-      address: fooAddress[31337],
+      address: fooAddress[foundry.id],
       abi: fooABI,
       functionName: "myString",
     });
@@ -20,7 +21,7 @@
 
   async function writeMessage() {
     const config = await prepareWriteContract({
-      address: fooAddress[31337],
+      address: fooAddress[foundry.id],
       abi: fooABI,
       functionName: "setMyString",
       args: [inputMessage],
@@ -28,11 +29,11 @@
     await writeContract(config);
     readMessage();
   }
-
-  onMount(readMessage);
 </script>
 
+<section>Note: Must be connected to local foundry (anvil) network.</section>
 <section>
+  <input type="submit" value="Read message" on:click={readMessage} />
   <div style="text-align: center">Message from contract: {messageFromContract}</div>
 </section>
 <section>
