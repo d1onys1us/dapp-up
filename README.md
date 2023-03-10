@@ -10,7 +10,9 @@
 
 1. [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&envDescription=Retrieve%20a%20Web3Modal%20project%20ID%20%E2%86%92&envLink=https%3A%2F%2Fcloud.walletconnect.com%2Fsign-in&root-directory=packages%2Fapp)
 2. Clone the repo that was created by Vercel
-3. Follow steps 3-5 in the next section
+3. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
+4. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
+5. Source environment vars: `source .env && source packages/app/.env`
 
 ## Create your dapp manually
 
@@ -41,19 +43,19 @@
 
 ## Common app commands
 
-Start the app locally:
+#### Start the app locally
 
 ```sh
 pnpm -F app dev
 ```
 
-Generate typed ABIs from Foundry contracts
+#### Generate typed ABIs from Foundry contracts
 
 ```sh
 pnpm -F app wagmi-generate
 ```
 
-Automatically generate typed ABIs from Foundry deployments
+#### Automatically generate typed ABIs from Foundry deployments
 
 ```sh
 pnpm wagmi generate --watch ../contracts/broadcast/
@@ -61,7 +63,7 @@ pnpm wagmi generate --watch ../contracts/broadcast/
 
 ## Common Foundry commands
 
-### Install a Foundry package
+#### Install a Foundry package
 
 1. Start by installing the package (example: openzeppelin-contracts):
 
@@ -75,13 +77,13 @@ forge install OpenZeppelin/openzeppelin-contracts
 forge remappings > remappings.txt
 ```
 
-### Start local anvil chain from mnemonic
+#### Start local anvil chain from mnemonic
 
 ```sh
 anvil -m $MNEMONIC
 ```
 
-### Deploy contracts to some chain
+#### Deploy contracts to some chain
 
 > Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
 
