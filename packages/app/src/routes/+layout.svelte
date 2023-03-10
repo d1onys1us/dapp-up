@@ -12,8 +12,8 @@
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
 
   $providers = {
-    [sepolia.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_SEPOLIA_RPC),
-    [taiko.id]: new ethers.providers.JsonRpcProvider(import.meta.env.VITE_TAIKO_RPC),
+    [sepolia.id]: new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org"),
+    [taiko.id]: new ethers.providers.JsonRpcProvider("https://l2rpc.hackathon.taiko.xyz"),
   };
   const { chains, provider } = configureChains(
     [sepolia, taiko],
