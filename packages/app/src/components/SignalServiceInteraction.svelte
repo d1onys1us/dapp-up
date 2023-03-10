@@ -118,11 +118,14 @@
 <section>
   <strong> Steps: </strong>
   <ol>
-    <li><strong><u>Connect your wallet</u></strong></li>
-    <li>Send a signal</li>
+    <li><strong><u>Connect your wallet (to Sepolia)</u></strong></li>
+    <li>Enter a message, and click "Send signal"</li>
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
-    <li>Check if signal is received on Taiko</li>
+    <li>Enter a message, and click "Is signal received" to verify this signal on Taiko</li>
   </ol>
+  <a href="https://taiko.xyz/docs/concepts/bridging" target="_blank" rel="noreferrer"
+    >Read more about bridging at taiko.xyz ↗</a
+  >
 </section>
 
 <section>
