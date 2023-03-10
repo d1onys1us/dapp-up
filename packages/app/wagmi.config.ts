@@ -3,7 +3,6 @@ import { foundry } from "@wagmi/cli/plugins";
 import * as wagmiChains from "@wagmi/core/chains";
 import { base, taiko } from "./src/domain/chain";
 import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
-import goerliJson from "../contracts/broadcast/Deploy.s.sol/5/run-latest.json";
 import sepoliaJson from "../contracts/broadcast/Deploy.s.sol/11155111/run-latest.json";
 import taikoJson from "../contracts/broadcast/Deploy.s.sol/167002/run-latest.json";
 import { headerSyncABI, signalServiceABI } from "./src/abi";
