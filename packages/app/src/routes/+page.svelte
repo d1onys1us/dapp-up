@@ -1,7 +1,6 @@
 <script>
-  // import ContractInteraction from "../components/ContractInteraction.svelte";
+  import ContractInteraction from "../components/ContractInteraction.svelte";
 </script>
 
-<!-- <ContractInteraction /> -->
-
-<h3>Just a home page.</h3>
+<h3>The home page</h3>
+<ContractInteraction />

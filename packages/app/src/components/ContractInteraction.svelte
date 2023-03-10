@@ -7,7 +7,7 @@
 
   // variables
   let inputMessage = "";
-  let messageFromContract = "placeholder";
+  let messageFromContract = "";
 
   // functions
   async function readMessage() {
@@ -29,11 +29,11 @@
     await writeContract(config);
     readMessage();
   }
-
-  onMount(readMessage);
 </script>
 
+<section>Note: Must be connected to local foundry (anvil) network.</section>
 <section>
+  <input type="submit" value="Read message" on:click={readMessage} />
   <div style="text-align: center">Message from contract: {messageFromContract}</div>
 </section>
 <section>
