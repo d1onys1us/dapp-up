@@ -1,7 +1,6 @@
 <script lang="ts">
   // imports
   import { readContract, prepareWriteContract, writeContract } from "@wagmi/core";
-  import { onMount } from "svelte";
   import { fooABI, fooAddress } from "../generated";
   import { foundry } from "@wagmi/core/chains";
 

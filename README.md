@@ -30,9 +30,8 @@
 ## Start the development environment
 
 1. Start local chain: `anvil -m $MNEMONIC`
-2. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
-3. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY`
-4. Start app: `pnpm -F app dev`
+2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi`
+3. Start app: `pnpm -F app dev`
 
 ## Faucet links
 
@@ -55,13 +54,7 @@ pnpm -F app dev
 #### Generate typed ABIs from Foundry contracts
 
 ```sh
-pnpm -F app wagmi-generate
-```
-
-#### Automatically generate typed ABIs from Foundry deployments
-
-```sh
-pnpm wagmi generate --watch ../contracts/broadcast/
+pnpm -F app wagmi
 ```
 
 ## Common Foundry commands
@@ -86,12 +79,12 @@ forge remappings > remappings.txt
 anvil -m $MNEMONIC
 ```
 
-#### Deploy contracts to some chain
+#### Deploy contracts to some chain and generate types
 
 > Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
 
 ```sh
-forge script Deploy --broadcast --rpc-url $SEPOLIA
+forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi
 ```
 
 ## Troubleshooting
