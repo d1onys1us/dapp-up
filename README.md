@@ -1,7 +1,3 @@
-## Create your dapp with one click (recommended)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&root-directory=packages%2Fapp)
-
 ## What's included ⚡
 
 - SvelteKit app
@@ -10,51 +6,60 @@
 - Foundry contracts
   - Configured for easy multi-chain deployments
 
-## Manual setup
+## Create your dapp with one-click deploy button (recommended)
 
-1. Click "Use this template" > "Create a new repository" > "Create repository from template"
-2. Clone repo (eg. `git clone https://github.com/repo_name`) and `cd <repo_name>` (replace `repo_name`)
-3. Execute the setup script `sh setup.sh` (installs foundry deps, node deps, and copies env vars)
-4. [Obtain a mnemonic](https://iancoleman.io/bip39/) for test accounts.
-   - Set mnemonic phrase in `packages/.env`
-5. [Obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in).
-   - Set web3modal project id in `packages/app/.env`
-6. Load environment variables: `source .env && source packages/app/.env`
+1. [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&root-directory=packages%2Fapp)
+2. Clone the repo that was created by Vercel
+3. Follow steps 3-5 in the next section
 
-Your environment is ready to go! Use these commands to get started deploying a contract and start buidling.
+## Create your dapp manually
+
+1. Clone/fork the repo:
+   `git clone https://github.com/d1onys1us/dapp-slaps.git`
+2. Install packages and copy .env.example files:
+   `cd dapp-slaps && sh setup.sh`
+3. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
+4. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
+5. Source environment vars: `source .env && source packages/app/.env`
+
+## Start the development environment
 
 1. Start local chain: `anvil -m $MNEMONIC`
 2. Start ABI generation in separate window: `pnpm wagmi generate --watch ../contracts/broadcast/`
 3. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY`
 4. Start app: `pnpm -F app dev`
 
-## Common commands
+## Faucet links
 
-### Start local anvil chain from mnemonic
+### Sepolia
+
+- [Receive Ether on Sepolia](https://sepolia-faucet.pk910.de/)
+
+### Taiko
+
+- [Receive Ether on Taiko](https://l2faucet.hackathon.taiko.xyz/)
+
+## Common app commands
+
+Start the app locally:
 
 ```sh
-anvil -m $MNEMONIC
+pnpm -F app dev
 ```
 
-### Deploy contracts to a chain
-
-> Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
-
-```sh
-forge script Deploy --broadcast --rpc-url $SEPOLIA
-```
-
-### Regenerate ABIs from Foundry
+Generate typed ABIs from Foundry contracts
 
 ```sh
 pnpm -F app wagmi-generate
 ```
 
-### Automatically regenerate ABIs from Foundry deployments
+Automatically generate typed ABIs from Foundry deployments
 
 ```sh
 pnpm wagmi generate --watch ../contracts/broadcast/
 ```
+
+## Common Foundry commands
 
 ### Install a Foundry package
 
@@ -68,6 +73,20 @@ forge install OpenZeppelin/openzeppelin-contracts
 
 ```sh
 forge remappings > remappings.txt
+```
+
+### Start local anvil chain from mnemonic
+
+```sh
+anvil -m $MNEMONIC
+```
+
+### Deploy contracts to some chain
+
+> Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
+
+```sh
+forge script Deploy --broadcast --rpc-url $SEPOLIA
 ```
 
 ## Troubleshooting
