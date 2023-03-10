@@ -28,6 +28,7 @@
 
   async function isSignalReceived() {
     isSignalReceivedMessage = "Checking...";
+    const signalSenderAddress = getAccount().address;
 
     // 1. get the latest synced header of the other chain
     const latestSyncedHeaderHash = await readContract({
@@ -73,10 +74,7 @@
         ethers.utils.keccak256(
           ethers.utils.solidityPack(
             ["address", "bytes32"],
-            [
-              "0x418edF05d862EC3D591cB16F7E2efA88De8F2b00",
-              ethers.utils.formatBytes32String(signalToVerify),
-            ]
+            [signalSenderAddress, ethers.utils.formatBytes32String(signalToVerify)]
           )
         ),
       ],
@@ -98,7 +96,6 @@
     );
 
     // 5. verify signal proof
-    const signalSenderAddress = getAccount().address;
 
     isSignalReceivedMessage = (await readContract({
       address: signalServiceConfig.address[taiko.id],
@@ -121,7 +118,7 @@
 <section>
   <strong> Steps: </strong>
   <ol>
-    <li>Connect to Sepolia</li>
+    <li><strong><u>Connect your wallet</u></strong></li>
     <li>Send a signal</li>
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
     <li>Check if signal is received on Taiko</li>
