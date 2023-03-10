@@ -4,7 +4,7 @@
   import { ethereumClient, wagmiClient, web3Modal, providers } from "../stores";
   import { configureChains, createClient } from "@wagmi/core";
   import { sepolia } from "@wagmi/core/chains";
-  import { EthereumClient, modalConnectors } from "@web3modal/ethereum";
+  import { EthereumClient, w3mConnectors } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
   import { ethers } from "ethers";
   import { jsonRpcProvider } from "@wagmi/core/providers/jsonRpc";
@@ -23,12 +23,11 @@
       }),
     ]
   );
-  const connectors = modalConnectors({ projectId, appName: "web3Modal", chains });
 
   // @ts-ignore
   $wagmiClient = createClient({
     autoConnect: true,
-    connectors,
+    connectors: w3mConnectors({ chains, version: 1, projectId }),
     provider,
   });
   $ethereumClient = new EthereumClient($wagmiClient, chains);
