@@ -15,7 +15,6 @@
    `cd <REPO_NAME> && sh setup.sh`
 5. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
 6. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
-7. Source environment vars: `source .env && source packages/app/.env`
 
 ## Create your dapp manually
 
@@ -29,7 +28,7 @@
 
 ## Start the development environment
 
-> You will have three development windows, start them all and source all .env files.
+> You will have three development windows, start them all and source all .env files with `source .env && source packages/app/.env`.
 
 1. Start local chain: `anvil -m $MNEMONIC`
 2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi`
