@@ -119,15 +119,8 @@
   <strong> Steps: </strong>
   <ol>
     <li>
-      <strong
-        ><u
-          >Connect your wallet (to Sepolia) and make sure you have some SepETH (<a
-            href="https://sepolia-faucet.pk910.de/"
-            target="_blank"
-            rel="noreferrer">Faucet ↗</a
-          >)</u
-        ></strong
-      >
+      <strong><u>Connect your wallet (to Sepolia) and make sure you have some SepETH </u></strong
+      >(<a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noreferrer">Faucet ↗</a>)
     </li>
     <li>Enter a message, and click "Send signal"</li>
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
