@@ -3,7 +3,7 @@
   import { taiko } from "../domain/chain";
   import { ethereumClient, wagmiClient, web3Modal, providers } from "../stores";
   import { configureChains, createClient } from "@wagmi/core";
-  import { sepolia } from "@wagmi/core/chains";
+  import { sepolia, foundry } from "@wagmi/core/chains";
   import { EthereumClient, w3mConnectors } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
   import { ethers } from "ethers";
@@ -14,9 +14,10 @@
   $providers = {
     [sepolia.id]: new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org"),
     [taiko.id]: new ethers.providers.JsonRpcProvider("https://l2rpc.hackathon.taiko.xyz"),
+    [foundry.id]: new ethers.providers.JsonRpcProvider("https://l2rpc.hackathon.taiko.xyz"),
   };
   const { chains, provider } = configureChains(
-    [sepolia, taiko],
+    [sepolia, taiko, foundry],
     [
       jsonRpcProvider({
         rpc: (chain) => ({ http: $providers[chain.id].connection.url }),

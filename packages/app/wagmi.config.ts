@@ -35,7 +35,6 @@ export default defineConfig({
       deployments: {
         Foo: {
           [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
-          [chains.goerli.id]: goerliJson.transactions[0].contractAddress as `0x${string}`,
           [chains.sepolia.id]: sepoliaJson.transactions[0].contractAddress as `0x${string}`,
           [chains.taiko.id]: taikoJson.transactions[0].contractAddress as `0x${string}`,
         },

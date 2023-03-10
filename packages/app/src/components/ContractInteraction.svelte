@@ -3,7 +3,7 @@
   import { readContract, prepareWriteContract, writeContract } from "@wagmi/core";
   import { onMount } from "svelte";
   import { fooABI, fooAddress } from "../generated";
-  import { sepolia } from "@wagmi/core/chains";
+  import { foundry } from "@wagmi/core/chains";
 
   // variables
   let inputMessage = "";
@@ -12,7 +12,7 @@
   // functions
   async function readMessage() {
     const data = await readContract({
-      address: fooAddress[sepolia.id],
+      address: fooAddress[foundry.id],
       abi: fooABI,
       functionName: "myString",
     });
@@ -21,7 +21,7 @@
 
   async function writeMessage() {
     const config = await prepareWriteContract({
-      address: fooAddress[sepolia.id],
+      address: fooAddress[foundry.id],
       abi: fooABI,
       functionName: "setMyString",
       args: [inputMessage],
