@@ -118,7 +118,10 @@
 <section>
   <strong> Steps: </strong>
   <ol>
-    <li><strong><u>Connect your wallet (to Sepolia)</u></strong></li>
+    <li>
+      <strong><u>Connect your wallet (to Sepolia) and make sure you have some SepETH </u></strong
+      >(<a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noreferrer">Faucet ↗</a>)
+    </li>
     <li>Enter a message, and click "Send signal"</li>
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
     <li>Enter a message, and click "Is signal received" to verify this signal on Taiko</li>
