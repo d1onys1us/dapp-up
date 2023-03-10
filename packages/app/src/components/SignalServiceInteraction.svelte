@@ -10,7 +10,7 @@
   import type { BlockHeader } from "../domain/sepoliaBlock";
 
   // variables
-  let srcChainSignal = "";
+  let signalToSend = "";
   let signalToVerify = "";
   let isSignalReceivedMessage = "false";
 
@@ -20,7 +20,7 @@
       address: signalServiceConfig.address[sepolia.id],
       abi: signalServiceConfig.abi,
       functionName: "sendSignal",
-      args: [ethers.utils.formatBytes32String(signalToVerify) as `0x${string}`], // TODO
+      args: [ethers.utils.formatBytes32String(signalToSend) as `0x${string}`], // TODO
       chainId: sepolia.id,
     });
     await writeContract(config);
@@ -131,7 +131,7 @@
 <section>
   <form>
     <div>Enter a signal to store on Sepolia:</div>
-    <input type="text" placeholder="A signal..." bind:value={srcChainSignal} />
+    <input type="text" placeholder="A signal..." bind:value={signalToSend} />
     <input type="submit" value="Send signal" on:click={sendSignal} />
   </form>
 </section>
