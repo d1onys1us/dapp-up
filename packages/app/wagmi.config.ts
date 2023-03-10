@@ -31,7 +31,7 @@ export default defineConfig({
     foundry({
       deployments: {
         Foo: {
-          // [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
+          [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
           // OR
           // [chains.foundry.id]: "0xblahblahblah"
         },
