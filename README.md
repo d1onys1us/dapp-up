@@ -94,3 +94,9 @@ forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi
 - Try clearing all browser storage
 - Try disconnecting account and reconnecting
 - Ensure all env vars are set
+
+## Acknowledgements
+- PaulRBerg in general: https://github.com/PaulRBerg
+- Taiko monorepo: https://github.com/taikoxyz/taiko-mono
+- Optimism Starter: https://github.com/ethereum-optimism/optimism-starter
+- ScaffoldEth2: https://github.com/scaffold-eth/se-2
