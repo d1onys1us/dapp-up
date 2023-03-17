@@ -37,8 +37,8 @@
 	"dependencies": {
 		"@picocss/pico": "^1.5.7",
 		"@wagmi/core": "0.10.1",
-		"@web3modal/ethereum": "^2.2.0",
-		"@web3modal/html": "^2.2.0",
+		"@web3modal/ethereum": "^2.2.1",
+		"@web3modal/html": "^2.2.1",
 		"ethers": "^5.7.2"
 	}
 }

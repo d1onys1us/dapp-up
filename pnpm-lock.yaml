@@ -14,8 +14,8 @@ importers:
       '@typescript-eslint/parser': ^5.54.1
       '@wagmi/cli': ^0.1.11
       '@wagmi/core': 0.10.1
-      '@web3modal/ethereum': ^2.2.0
-      '@web3modal/html': ^2.2.0
+      '@web3modal/ethereum': ^2.2.1
+      '@web3modal/html': ^2.2.1
       abitype: ^0.6.7
       eslint: ^8.35.0
       eslint-config-prettier: ^8.7.0
@@ -32,8 +32,8 @@ importers:
     dependencies:
       '@picocss/pico': 1.5.7
       '@wagmi/core': 0.10.1_apnpkfzynlr2iok3waemyv4d5q
-      '@web3modal/ethereum': 2.2.0_lh25osyrdykw73pkr7puwqzska
-      '@web3modal/html': 2.2.0_react@18.2.0
+      '@web3modal/ethereum': 2.2.1_lh25osyrdykw73pkr7puwqzska
+      '@web3modal/html': 2.2.1_react@18.2.0
       ethers: 5.7.2
     devDependencies:
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0
@@ -1957,17 +1957,17 @@ packages:
     transitivePeerDependencies:
       - react
 
-  /@web3modal/core/2.2.0_react@18.2.0:
-    resolution: {integrity: sha512-Kafg/KtK6S9x0Ofcaq9hj7dRK5/541nM+LnayPmHxx4fSrDgcM9YYhL12fI4BG1xGOJwkeZjgFOtS0qf123Cjw==}
+  /@web3modal/core/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-B2O1+uwnEA2pD+NH+W7xIUMqAkUOxuw6WuIbXZ96tXQO8Mqm8tkrJ6MoqmIo6ntLwHLXtcjitH//JvJHjWVt6A==}
     dependencies:
       buffer: 6.0.3
-      valtio: 1.9.0_react@18.2.0
+      valtio: 1.10.3_react@18.2.0
     transitivePeerDependencies:
       - react
     dev: false
 
-  /@web3modal/ethereum/2.2.0_lh25osyrdykw73pkr7puwqzska:
-    resolution: {integrity: sha512-/xARXiIyKz9O9plCwNUAoE70gT8r5x6dnJ3cslAC3PW+mUwI3wKVIBuT1garO7BfKK/rnDwDyAeJ+OIbxTT3mw==}
+  /@web3modal/ethereum/2.2.1_lh25osyrdykw73pkr7puwqzska:
+    resolution: {integrity: sha512-lSz13EaWxhJQyuAluC0FJ+hH8cx5pQyEr2f3brn5KVLIN6vgVz9rjSMLLmI1w2ukrQRKpRz0XCzDSgrerYhtQw==}
     peerDependencies:
       '@wagmi/core': '>=0.10'
       ethers: '>=5.7'
@@ -1976,11 +1976,12 @@ packages:
       ethers: 5.7.2
     dev: false
 
-  /@web3modal/html/2.2.0_react@18.2.0:
-    resolution: {integrity: sha512-//YvNQXN0h5Ojp6by5Eby9ACseewCmO7HD4Z5pALL+0sfFj2lCfWmbtNHfy63B10f6ze7OYT/dUDpo9FbHAOEg==}
+  /@web3modal/html/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-qORuNH/XyZzVUuQiamhFX1jsHLD06OT+3H3mzwxGAK+Z9wfenscB35tnbBVrS66rjbtdK2IRygFyEJi3wtlEOQ==}
     dependencies:
-      '@web3modal/core': 2.2.0_react@18.2.0
-      '@web3modal/ui': 2.2.0_react@18.2.0
+      '@web3modal/core': 2.2.1_react@18.2.0
+      '@web3modal/standalone': 2.2.1_react@18.2.0
+      '@web3modal/ui': 2.2.1_react@18.2.0
     transitivePeerDependencies:
       - react
     dev: false
@@ -1993,6 +1994,15 @@ packages:
     transitivePeerDependencies:
       - react
 
+  /@web3modal/standalone/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-pHPL+UykZtOZhEhNl+l3wWnNvZZdm8cgJgVQVo8yL7m4N9kTyRbDArsQenlIeIm2xi0kFncXBJbe1kaxl8AWTA==}
+    dependencies:
+      '@web3modal/core': 2.2.1_react@18.2.0
+      '@web3modal/ui': 2.2.1_react@18.2.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /@web3modal/ui/2.1.1_react@18.2.0:
     resolution: {integrity: sha512-0jRDxgPc/peaE5KgqnzzriXhdVu5xNyCMP5Enqdpd77VkknJIs7h16MYKidxgFexieyHpCOssWySsryWcP2sXA==}
     dependencies:
@@ -2003,10 +2013,10 @@ packages:
     transitivePeerDependencies:
       - react
 
-  /@web3modal/ui/2.2.0_react@18.2.0:
-    resolution: {integrity: sha512-jcV5C9AuMdsFdf6Ljsr0v2lInu8FJJyXcZPaMHkgYNIczzgMEpDE+UOA7hLnyCTUxM9R0AgRcgfTyMWb9H8Ssw==}
+  /@web3modal/ui/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-7WfynySxcDYFzGTV+9HODKJ85VVVPB8GGcew2JWr9jYcYfRE6KBM75lo+PRb0zdMFRQtSPpU41fRLCk+vBJ4ww==}
     dependencies:
-      '@web3modal/core': 2.2.0_react@18.2.0
+      '@web3modal/core': 2.2.1_react@18.2.0
       lit: 2.6.1
       motion: 10.15.5
       qrcode: 1.5.1
@@ -4739,6 +4749,10 @@ packages:
   /proxy-compare/2.4.0:
     resolution: {integrity: sha512-FD8KmQUQD6Mfpd0hywCOzcon/dbkFP8XBd9F1ycbKtvVsfv6TsFUKJ2eC0Iz2y+KzlkdT1Z8SY6ZSgm07zOyqg==}
 
+  /proxy-compare/2.5.0:
+    resolution: {integrity: sha512-f1us0OsVAJ3tdIMXGQx2lmseYS4YXe4W+sKF5g5ww/jV+5ogMadPt+sIZ+88Ga9kvMJsrRNWzCrKPpr6pMWYbA==}
+    dev: false
+
   /public-encrypt/4.0.3:
     resolution: {integrity: sha512-zVpa8oKZSz5bTMTFClc1fQOnyyEzpl5ozpi1B5YcvBrdohMjH2rfsBtyXcuNuwjsDIXmBYlF2N5FlJYhR29t8Q==}
     dependencies:
@@ -5511,6 +5525,20 @@ packages:
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
+
+  /valtio/1.10.3_react@18.2.0:
+    resolution: {integrity: sha512-t3Ez/+baJ+Z5tIyeaI6nCAbW/hrmcq2jditwg/X++o5IvCdiGirQKTOv1kJq0glgUo13v5oABCVGcinggBfiKw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      proxy-compare: 2.5.0
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /valtio/1.9.0_react@18.2.0:
     resolution: {integrity: sha512-mQLFsAlKbYascZygFQh6lXuDjU5WHLoeZ8He4HqMnWfasM96V6rDbeFkw1XeG54xycmDonr/Jb4xgviHtuySrA==}
