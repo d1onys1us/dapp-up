@@ -30,16 +30,16 @@ export const taiko = {
   },
   rpcUrls: {
     public: {
-      http: ["https://l2rpc.hackathon.taiko.xyz"],
+      http: ["https://rpc.a2.taiko.xyz"],
     },
     default: {
-      http: ["https://l2rpc.hackathon.taiko.xyz"],
+      http: ["https://rpc.a2.taiko.xyz"],
     },
   },
   blockExplorers: {
     default: {
       name: "L2 Explorer",
-      url: "https://l2explorer.hackathon.taiko.xyz",
+      url: "https://explorer.a2.taiko.xyz",
     },
   },
   testnet: true,

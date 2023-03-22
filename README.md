@@ -42,7 +42,7 @@
 
 ### Taiko
 
-- [Receive Ether on Taiko](https://l2faucet.hackathon.taiko.xyz/)
+- [Receive Ether on Taiko](https://taiko.xyz/docs/guides/use-the-bridge#bridge-tokens-from-sepolia-to-taiko)
 
 ## Common app commands
 

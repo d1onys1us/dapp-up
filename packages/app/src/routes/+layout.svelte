@@ -13,7 +13,7 @@
 
   $providers = {
     [sepolia.id]: new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org"),
-    [taiko.id]: new ethers.providers.JsonRpcProvider("https://l2rpc.hackathon.taiko.xyz"),
+    [taiko.id]: new ethers.providers.JsonRpcProvider("https://rpc.a2.taiko.xyz"),
     [foundry.id]: new ethers.providers.JsonRpcProvider("http://localhost:8545"),
   };
   const { chains, provider } = configureChains(
