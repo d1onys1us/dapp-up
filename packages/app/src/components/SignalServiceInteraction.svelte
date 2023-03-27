@@ -126,7 +126,7 @@
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
     <li>Enter a message, and click "Is signal received" to verify this signal on Taiko</li>
   </ol>
-  <a href="https://taiko.xyz/docs/concepts/bridging" target="_blank" rel="noreferrer"
+  <a href="https://taiko.xyz/docs/concepts/bridging/the-signal-service" target="_blank" rel="noreferrer"
     >Read more about bridging at taiko.xyz ↗</a
   >
 </section>
