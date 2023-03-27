@@ -11,7 +11,8 @@
 1. [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&envDescription=Retrieve%20a%20Web3Modal%20project%20ID%20%E2%86%92&envLink=https%3A%2F%2Fcloud.walletconnect.com%2Fsign-in&root-directory=packages%2Fapp)
 2. Clone and cd the repo that was created by Vercel using `git clone <REPO_NAME> && cd <REPO_NAME>`
 3. Install Foundry dependency because Vercel doesn't clone the submodules: `forge install foundry-rs/forge-std`
-4. Install packages and copy .env.example files:
+4. Install [pnpm](https://pnpm.io/installation)
+5. Install packages and copy .env.example files:
    `sh setup.sh`
 5. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
 6. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
