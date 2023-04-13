@@ -15,7 +15,7 @@
 5. Install packages and copy .env.example files:
    `sh setup.sh`
 5. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
-6. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
+6. Set web3modal project id in `.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
 
 ## Create your dapp manually
 
@@ -24,8 +24,8 @@
 2. Install packages and copy .env.example files:
    `cd dapp-slaps && sh setup.sh`
 3. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
-4. Set web3modal project id in `packages/app/.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
-5. Source environment vars: `source .env && source packages/app/.env`
+4. Set web3modal project id in `.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
+5. Source environment vars: `source .env`
 
 ## Start the development environment
 

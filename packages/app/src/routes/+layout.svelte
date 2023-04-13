@@ -13,7 +13,7 @@
 
   $providers = {
     [sepolia.id]: new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org"),
-    [taiko.id]: new ethers.providers.JsonRpcProvider("https://rpc.a2.taiko.xyz"),
+    [taiko.id]: new ethers.providers.JsonRpcProvider("https://l2rpc.hackathon.taiko.xyz"),
     [foundry.id]: new ethers.providers.JsonRpcProvider("http://localhost:8545"),
   };
   const { chains, provider } = configureChains(
@@ -35,7 +35,6 @@
   $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
 </script>
 
-<!-- Header -->
 <header class="container">
   <nav>
     <ul>
@@ -51,10 +50,6 @@
   </nav>
 </header>
 
-<!-- Main -->
 <main class="container">
   <slot />
 </main>
-
-<!-- Footer -->
-<!-- <footer class="container">A footer</footer> -->
