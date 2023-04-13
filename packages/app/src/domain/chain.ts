@@ -28,18 +28,19 @@ export const taiko = {
     symbol: "ETH",
     decimals: 18,
   },
+  // TODO: this is a duplication to the layout.svelte rpc, make DRY from env vars
   rpcUrls: {
     public: {
-      http: ["https://rpc.a2.taiko.xyz"],
+      http: ["https://l2rpc.hackathon.taiko.xyz"],
     },
     default: {
-      http: ["https://rpc.a2.taiko.xyz"],
+      http: ["https://l2rpc.hackathon.taiko.xyz"],
     },
   },
   blockExplorers: {
     default: {
       name: "L2 Explorer",
-      url: "https://explorer.a2.taiko.xyz",
+      url: "https://l2explorer.hackathon.taiko.xyz",
     },
   },
   testnet: true,

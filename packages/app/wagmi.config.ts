@@ -2,6 +2,7 @@ import { defineConfig } from "@wagmi/cli";
 import { foundry } from "@wagmi/cli/plugins";
 import * as wagmiChains from "@wagmi/core/chains";
 import { base, taiko } from "./src/domain/chain";
+// TODO this is an error if the contract has not been deployed yet, please fix
 import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
 import { headerSyncABI, signalServiceABI } from "./src/abi";
 import { Abi } from "abitype";
@@ -15,8 +16,8 @@ export default defineConfig({
       name: "SignalService",
       abi: signalServiceABI as Abi,
       address: {
-        [chains.sepolia.id]: "0xe40D5bedD2f3d9F288CC12c69463bC43c77488d6",
-        [chains.taiko.id]: "0x191E3D5a00d54799D7da6c04d56b19938304c312",
+        [chains.sepolia.id]: "0x11013a48Ad87a528D23CdA25D2C34D7dbDA6b46b",
+        [chains.taiko.id]: "0x0000777700000000000000000000000000000007",
       },
     },
     {
