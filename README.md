@@ -15,6 +15,7 @@
    `sh setup.sh`
 5. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
 6. Set web3modal project id in `.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
+7. (optional) if using vscode check the vscode config section
 
 ## Create your dapp manually
 
