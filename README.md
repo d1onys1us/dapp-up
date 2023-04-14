@@ -25,6 +25,7 @@
 3. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
 4. Set web3modal project id in `.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
 5. Source environment vars: `source .env`
+6. (optional) if using vscode check the vscode config section
 
 ## Start the development environment
 
@@ -86,6 +87,19 @@ anvil -m $MNEMONIC
 
 ```sh
 forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi
+```
+
+## vscode config section
+follow this: https://book.getfoundry.sh/config/vscode, but use this for the path (because of the monorepo setup):
+```
+"solidity.packageDefaultDependenciesContractsDirectory": "packages/contracts/src",
+"solidity.packageDefaultDependenciesDirectory": "packages/contracts/lib",
+"solidity.compileUsingRemoteVersion": "v0.8.19",
+"editor.formatOnSave": true,
+"[solidity]": {
+    "editor.defaultFormatter": "JuanBlanco.solidity" 
+},
+"solidity.formatter": "forge",
 ```
 
 ## Troubleshooting
