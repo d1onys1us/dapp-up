@@ -44,7 +44,7 @@
 
 ### Taiko
 
-- [Receive Ether on Taiko](https://taiko.xyz/docs/guides/use-the-bridge#bridge-tokens-from-sepolia-to-taiko)
+- [Receive Ether on Taiko](https://taiko.xyz/docs/reference/ethglobal-tokyo-reference#faucets)
 
 ## Common app commands
 
