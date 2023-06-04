@@ -21,6 +21,8 @@
 
     $ethereumClient = new EthereumClient(wagmiConfig, chains);
     $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
+
+    // TODO: can initialize viem client instances here to svelte stores
   });
 </script>
 
@@ -30,7 +32,7 @@
       <li><a href="/">Home</a></li>
     </ul>
     <ul>
-      <li><a href="/signal-service">Signal service</a></li>
+      <li><a href="/another-page">Another page</a></li>
       <li><w3m-network-switch /></li>
       <li>
         <w3m-core-button balance="show" icon="hide" />

@@ -1,4 +1,4 @@
-import type { Chain } from "@wagmi/core";
+import type { Chain } from "viem/chains";
 
 export const base = {
   id: 84531,
@@ -20,11 +20,11 @@ export const base = {
 } as const satisfies Chain;
 
 export const taiko = {
-  id: 167001,
+  id: 167005,
   name: "Taiko",
   network: "alpha-3",
   nativeCurrency: {
-    name: "Taiko Ether",
+    name: "Ether",
     symbol: "ETH",
     decimals: 18,
   },
@@ -38,7 +38,7 @@ export const taiko = {
   },
   blockExplorers: {
     default: {
-      name: "L2 Explorer",
+      name: "blockscout",
       url: "https://explorer.test.taiko.xyz",
     },
   },
