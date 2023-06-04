@@ -37,15 +37,15 @@
 2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi:generate`
 3. Start app: `pnpm -F app dev`
 
-## Faucet links
+## Get testnet ETH
 
 ### Sepolia
 
 - [Receive Ether on Sepolia](https://sepolia-faucet.pk910.de/)
 
-### Taiko
+### Goerli
 
-- [Receive Ether on Taiko](https://taiko.xyz/docs/reference/ethglobal-tokyo-reference#faucets)
+- [Receive Ether on Goerli](https://goerlifaucet.com/)
 
 ## Common app commands
 
@@ -84,8 +84,6 @@ anvil -m $MNEMONIC
 ```
 
 #### Deploy contracts to some chain and generate types
-
-> Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
 
 ```sh
 forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi:generate

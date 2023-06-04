@@ -2,11 +2,12 @@
   import "@picocss/pico/css/pico.min.css";
   import { taiko } from "../domain/chain";
   import { foundry, mainnet, sepolia } from "viem/chains";
-  import { ethereumClient, web3Modal } from "../stores";
+  import { ethereumClient, sepoliaClient, web3Modal } from "../stores";
   import { configureChains, createConfig } from "@wagmi/core";
   import { EthereumClient, w3mConnectors, w3mProvider } from "@web3modal/ethereum";
   import { Web3Modal } from "@web3modal/html";
   import { onMount } from "svelte";
+  import { createPublicClient, http } from "viem";
 
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
   const chains = [mainnet, sepolia, foundry, taiko];
@@ -22,7 +23,11 @@
     $ethereumClient = new EthereumClient(wagmiConfig, chains);
     $web3Modal = new Web3Modal({ projectId, defaultChain: sepolia }, $ethereumClient);
 
-    // TODO: can initialize viem client instances here to svelte stores
+    // initialize viem clients
+    $sepoliaClient = createPublicClient({
+      chain: sepolia,
+      transport: http(),
+    });
   });
 </script>
 

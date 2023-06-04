@@ -2,7 +2,7 @@ import { defineConfig } from "@wagmi/cli";
 import { foundry } from "@wagmi/cli/plugins";
 import * as viemChains from "viem/chains";
 import { base, taiko } from "./src/domain/chain";
-// TODO this is an error if the contract has not been deployed yet, please fix
+// this is an error if the contract has not been deployed yet, set specific contract address if needed
 import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
 import { taikoL2ABI, signalServiceABI } from "./src/abi";
 import { Abi } from "abitype";
