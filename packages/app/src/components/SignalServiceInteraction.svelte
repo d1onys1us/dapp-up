@@ -2,11 +2,17 @@
   // imports
   import { readContract, prepareWriteContract, writeContract, getAccount } from "@wagmi/core";
   import { signalServiceConfig, taikoL2Config } from "../generated";
-  import { ethers } from "ethers";
-  import { sepolia } from "@wagmi/core/chains";
+  import { sepolia } from "viem/chains";
+  import {
+    encodeAbiParameters,
+    encodePacked,
+    keccak256,
+    parseAbiParameters,
+    stringToHex,
+    toRlp,
+  } from "viem";
   import { taiko } from "../domain/chain";
   import { providers } from "../stores";
-  import { RLP } from "ethers/lib/utils";
   import type { BlockHeader } from "../domain/sepoliaBlock";
 
   // variables
@@ -20,10 +26,10 @@
       address: signalServiceConfig.address[sepolia.id],
       abi: signalServiceConfig.abi,
       functionName: "sendSignal",
-      args: [ethers.utils.formatBytes32String(signalToSend) as `0x${string}`], // TODO
+      args: [stringToHex(signalToSend, { size: 32 })],
       chainId: sepolia.id,
     });
-    await writeContract(config);
+    await writeContract(config.request);
   }
 
   async function isSignalReceived() {
@@ -31,11 +37,13 @@
     const signalSenderAddress = getAccount().address;
 
     // 1. get the latest synced header of the other chain
+    // TODO update to getCrossChainBlockHash
     const latestSyncedHeaderHash = await readContract({
       address: taikoL2Config.address[taiko.id],
       abi: taikoL2Config.abi,
-      functionName: "getLatestSyncedHeader",
+      functionName: "getCrossChainBlockHash",
       chainId: taiko.id,
+      args: [0],
     });
 
     const block = await $providers[sepolia.id].send("eth_getBlockByHash", [
@@ -43,38 +51,14 @@
       false,
     ]);
 
-    const blockHeader: BlockHeader = {
-      parentHash: block.parentHash,
-      ommersHash: block.sha3Uncles,
-      beneficiary: block.miner,
-      stateRoot: block.stateRoot,
-      transactionsRoot: block.transactionsRoot,
-      receiptsRoot: block.receiptsRoot,
-      logsBloom: block.logsBloom
-        .toString()
-        .substring(2)
-        .match(/.{1,64}/g)!
-        .map((s: string) => "0x" + s),
-      difficulty: block.difficulty,
-      height: block.number,
-      gasLimit: block.gasLimit,
-      gasUsed: block.gasUsed,
-      timestamp: block.timestamp,
-      extraData: block.extraData,
-      mixHash: block.mixHash,
-      nonce: block.nonce,
-      baseFeePerGas: block.baseFeePerGas ? parseInt(block.baseFeePerGas) : 0,
-      withdrawalsRoot: block.withdrawalsRoot,
-    };
-
     // 2. get the merkle proof for the signal at the specified synced block hash
     let proof = await $providers[sepolia.id].send("eth_getProof", [
       signalServiceConfig.address[sepolia.id],
       [
-        ethers.utils.keccak256(
-          ethers.utils.solidityPack(
+        keccak256(
+          encodePacked(
             ["address", "bytes32"],
-            [signalSenderAddress, ethers.utils.formatBytes32String(signalToVerify)]
+            [signalSenderAddress as `0x${string}`, stringToHex(signalToVerify, { size: 32 })]
           )
         ),
       ],
@@ -82,16 +66,13 @@
     ]);
 
     // 3. encode the account proof and storage proof
-    const encodedProof = ethers.utils.defaultAbiCoder.encode(
-      ["bytes", "bytes"],
-      [RLP.encode(proof.accountProof), RLP.encode(proof.storageProof[0].proof)]
-    );
+    const encodedProof = toRlp(proof.storageProof[0].proof);
 
     // 4. return the signal proof
-    let signalProof = ethers.utils.defaultAbiCoder.encode(
-      [
-        "tuple(tuple(bytes32 parentHash, bytes32 ommersHash, address beneficiary, bytes32 stateRoot, bytes32 transactionsRoot, bytes32 receiptsRoot, bytes32[8] logsBloom, uint256 difficulty, uint128 height, uint64 gasLimit, uint64 gasUsed, uint64 timestamp, bytes extraData, bytes32 mixHash, uint64 nonce, uint256 baseFeePerGas, bytes32 withdrawalsRoot) header, bytes proof)",
-      ],
+    let signalProof = encodeAbiParameters(
+      parseAbiParameters(
+        "tuple(tuple(bytes32, bytes32, address, bytes32, bytes32, bytes32, bytes32[8], uint256, uint128, uint64, uint64, uint64, bytes, bytes32, uint64, uint256, bytes32), bytes)"
+      ),
       [{ header: blockHeader, proof: encodedProof }]
     );
 
@@ -102,9 +83,9 @@
       abi: signalServiceConfig.abi,
       functionName: "isSignalReceived",
       args: [
-        ethers.BigNumber.from(sepolia.id),
+        BigInt(sepolia.id),
         signalSenderAddress as `0x${string}`,
-        ethers.utils.formatBytes32String(signalToVerify) as `0x${string}`,
+        stringToHex(signalToVerify, { size: 32 }),
         signalProof as `0x${string}`,
       ],
       chainId: taiko.id,
@@ -116,18 +97,23 @@
 
 <!-- start template -->
 <section>
-  <strong> Steps: </strong>
+  Steps:
   <ol>
     <li>
-      <strong><u>Connect your wallet (to Sepolia) and make sure you have some SepETH </u></strong
-      >(<a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noreferrer">Faucet ↗</a>)
+      <u>Connect your wallet (to Sepolia) and make sure you have some Sepolia ETH</u>&nbsp;(<a
+        href="https://sepolia-faucet.pk910.de/"
+        target="_blank"
+        rel="noreferrer">Faucet ↗</a
+      >)
     </li>
     <li>Enter a message, and click "Send signal"</li>
     <li>Wait about ~5 mins (currently configured L2 block derivation time)</li>
     <li>Enter a message, and click "Is signal received" to verify this signal on Taiko</li>
   </ol>
-  <a href="https://taiko.xyz/docs/concepts/bridging/the-signal-service" target="_blank" rel="noreferrer"
-    >Read more about bridging at taiko.xyz ↗</a
+  <a
+    href="https://taiko.xyz/docs/concepts/bridging/the-signal-service"
+    target="_blank"
+    rel="noreferrer">Read more about bridging at taiko.xyz ↗</a
   >
 </section>
 
@@ -141,7 +127,7 @@
 
 <section>
   <form>
-    <div>Enter a signal to check is received on Taiko:</div>
+    <div>Enter a signal to verify on Taiko:</div>
     <input type="text" placeholder="A signal..." bind:value={signalToVerify} />
     <input type="submit" value="Is signal received" on:click={isSignalReceived} />
   </form>

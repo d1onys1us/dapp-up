@@ -2,5 +2,5 @@
   import ContractInteraction from "../components/ContractInteraction.svelte";
 </script>
 
-<h3>The home page</h3>
+<h3>Basic contract interaction</h3>
 <ContractInteraction />

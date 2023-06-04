@@ -1,3 +1,8 @@
 {
-  "recommendations": ["svelte.svelte-vscode", "juanblanco.solidity"]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "nomicfoundation.hardhat-solidity",
+    "svelte.svelte-vscode",
+    "tamasfe.even-better-toml"
+  ]
 }

@@ -1,20 +1,14 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: UNLICENSED
+// credits: https://github.com/PaulRBerg/foundry-template/
 pragma solidity >=0.8.19;
 
-import {Script} from "forge-std/Script.sol";
 import {Foo} from "../src/Foo.sol";
 
-contract Deploy is Script {
-    address internal deployer;
-    Foo internal foo;
+import {BaseScript} from "./Base.s.sol";
 
-    function setUp() public virtual {
-        (deployer,) = deriveRememberKey(vm.envString("MNEMONIC"), 0);
-    }
-
-    function run() public {
-        vm.startBroadcast(deployer);
+/// @dev See the Solidity Scripting tutorial: https://book.getfoundry.sh/tutorials/solidity-scripting
+contract Deploy is BaseScript {
+    function run() public broadcaster returns (Foo foo) {
         foo = new Foo();
-        vm.stopBroadcast();
     }
 }

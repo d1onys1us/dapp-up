@@ -20,27 +20,26 @@ export const base = {
 } as const satisfies Chain;
 
 export const taiko = {
-  id: 167002,
+  id: 167001,
   name: "Taiko",
-  network: "askja",
+  network: "alpha-3",
   nativeCurrency: {
     name: "Taiko Ether",
     symbol: "ETH",
     decimals: 18,
   },
-  // TODO: this is a duplication to the layout.svelte rpc, make DRY from env vars
   rpcUrls: {
     public: {
-      http: ["https://l2rpc.hackathon.taiko.xyz"],
+      http: ["https://rpc.test.taiko.xyz"],
     },
     default: {
-      http: ["https://l2rpc.hackathon.taiko.xyz"],
+      http: ["https://rpc.test.taiko.xyz"],
     },
   },
   blockExplorers: {
     default: {
       name: "L2 Explorer",
-      url: "https://l2explorer.hackathon.taiko.xyz",
+      url: "https://explorer.test.taiko.xyz",
     },
   },
   testnet: true,

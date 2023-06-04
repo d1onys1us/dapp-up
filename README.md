@@ -1,4 +1,4 @@
-## What's included ⚡
+## What's included
 
 - SvelteKit app
   - Auto-generated and fully-typed ABIs using wagmi-generate
@@ -8,14 +8,15 @@
 
 ## Create your dapp with one-click deploy button (recommended)
 
-1. [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&envDescription=Retrieve%20a%20Web3Modal%20project%20ID%20%E2%86%92&envLink=https%3A%2F%2Fcloud.walletconnect.com%2Fsign-in&root-directory=packages%2Fapp)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fd1onys1us%2Fdapp-slaps&env=VITE_WEB3MODAL_PROJECT_ID&envDescription=Retrieve%20a%20Web3Modal%20project%20ID%20%E2%86%92&envLink=https%3A%2F%2Fcloud.walletconnect.com%2Fsign-in&root-directory=packages%2Fapp)
+
+1. Click the **Deploy with Vercel** button above
 2. Clone and cd the repo that was created by Vercel using `git clone <REPO_NAME> && cd <REPO_NAME>`
 3. Install Foundry dependency because Vercel doesn't clone the submodules: `forge install foundry-rs/forge-std` (must have foundry installed, see here: https://book.getfoundry.sh/getting-started/installation)
 4. Install packages and copy .env.example files:
    `sh setup.sh`
 5. Set mnemonic phrase in root `.env` for test accounts ([generate a bip39 mnemonic](https://iancoleman.io/bip39/))
 6. Set web3modal project id in `.env` ([obtain a project id for web3modal](https://cloud.walletconnect.com/sign-in))
-7. (optional) if using vscode check the vscode config section
 
 ## Create your dapp manually
 
@@ -33,7 +34,7 @@
 > You will have three development windows, start them all and source all .env files with `source .env && source packages/app/.env`.
 
 1. Start local chain: `anvil -m $MNEMONIC`
-2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi`
+2. Deploy the Foo contract: `forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi:generate`
 3. Start app: `pnpm -F app dev`
 
 ## Faucet links
@@ -87,20 +88,7 @@ anvil -m $MNEMONIC
 > Note: some L2s require a `--legacy` flag if EIP-1559 is not yet supported.
 
 ```sh
-forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi
-```
-
-## vscode config section
-follow this: https://book.getfoundry.sh/config/vscode, but use this for the path (because of the monorepo setup):
-```
-"solidity.packageDefaultDependenciesContractsDirectory": "packages/contracts/src",
-"solidity.packageDefaultDependenciesDirectory": "packages/contracts/lib",
-"solidity.compileUsingRemoteVersion": "v0.8.19",
-"editor.formatOnSave": true,
-"[solidity]": {
-    "editor.defaultFormatter": "JuanBlanco.solidity" 
-},
-"solidity.formatter": "forge",
+forge script Deploy --broadcast --rpc-url $FOUNDRY && pnpm -F app wagmi:generate
 ```
 
 ## Troubleshooting
@@ -111,7 +99,8 @@ follow this: https://book.getfoundry.sh/config/vscode, but use this for the path
 - Ensure all env vars are set
 
 ## Acknowledgements
-- PaulRBerg in general: https://github.com/PaulRBerg
+
+- PaulRBerg Foundry template: https://github.com/PaulRBerg/foundry-template
 - Taiko monorepo: https://github.com/taikoxyz/taiko-mono
 - Optimism Starter: https://github.com/ethereum-optimism/optimism-starter
 - ScaffoldEth2: https://github.com/scaffold-eth/se-2

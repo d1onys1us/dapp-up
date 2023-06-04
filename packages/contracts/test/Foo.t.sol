@@ -5,8 +5,8 @@ import "forge-std/Test.sol";
 import {Foo} from "../src/Foo.sol";
 
 contract FooTest is Test {
-    // function testFoo() public {
-    //     Foo foo = new Foo();
-    //     assertEq(foo.myString(), "Hello, world!");
-    // }
+    function testFoo() public {
+        Foo foo = new Foo();
+        assertEq(foo.myString(), "Hello, world!");
+    }
 }

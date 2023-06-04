@@ -1,11 +1,15 @@
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+
 [profile.default]
-src = 'packages/contracts/src'
-test = 'packages/contracts/test'
-out = 'packages/contracts/out'
-script = 'packages/contracts/script'
+auto_detect_solc = false
 broadcast = 'packages/contracts/broadcast'
 cache_path = 'packages/contracts/cache'
 libs = ['packages/contracts/lib']
-solc = "0.8.19"
+out = 'packages/contracts/out'
+script = 'packages/contracts/script'
+src = 'packages/contracts/src'
+test = 'packages/contracts/test'
+solc_version = "0.8.19"
 
-# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+[fmt]
+line_length = 100

@@ -1,14 +1,11 @@
 <script lang="ts">
-  // imports
   import { readContract, prepareWriteContract, writeContract } from "@wagmi/core";
   import { fooABI, fooAddress } from "../generated";
-  import { foundry } from "@wagmi/core/chains";
+  import { foundry } from "viem/chains";
 
-  // variables
   let inputMessage = "";
   let messageFromContract = "";
 
-  // functions
   async function readMessage() {
     const data = await readContract({
       address: fooAddress[foundry.id],
@@ -25,12 +22,12 @@
       functionName: "setMyString",
       args: [inputMessage],
     });
-    await writeContract(config);
+    await writeContract(config.request);
     readMessage();
   }
 </script>
 
-<section>Note: Must be connected to local foundry (anvil) network.</section>
+<section>Note: Must be connected to local Foundry network (Anvil).</section>
 <section>
   <input type="submit" value="Read message" on:click={readMessage} />
   <div style="text-align: center">Message from contract: {messageFromContract}</div>

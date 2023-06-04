@@ -2,5 +2,5 @@
   import SignalServiceInteraction from "../../components/SignalServiceInteraction.svelte";
 </script>
 
-<h3>The signal service page</h3>
+<h3>Signal service interaction</h3>
 <SignalServiceInteraction />

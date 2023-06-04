@@ -1,2 +1,2 @@
 export { signalServiceABI } from "./SignalService";
-export { headerSyncABI } from "./HeaderSync";
+export { taikoL2ABI } from "./TaikoL2";
