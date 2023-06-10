@@ -35,7 +35,6 @@
   }
 </script>
 
-<section>Note: Must be connected to local Foundry network (Anvil).</section>
 <section>
   <input type="submit" value="Read message" on:click={readMessage} />
   <div style="text-align: center">Message from contract: {messageFromContract}</div>
