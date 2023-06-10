@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "@picocss/pico/css/pico.min.css";
+  import "../app.css";
   import { taiko } from "../domain/chain";
   import { foundry, mainnet, sepolia } from "viem/chains";
   import { ethereumClient, sepoliaClient, web3Modal } from "../stores";
@@ -31,21 +31,17 @@
   });
 </script>
 
-<header class="container">
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-    </ul>
-    <ul>
-      <li><a href="/another-page">Another page</a></li>
-      <li><w3m-network-switch /></li>
-      <li>
-        <w3m-core-button balance="show" icon="hide" />
-      </li>
-    </ul>
-  </nav>
-</header>
+<div class="container mx-auto">
+  <div class="navbar">
+    <div class="navbar-start">
+      <a href="/">Home</a>
+    </div>
+    <div class="navbar-end gap-2">
+      <a href="/another-page">Another page</a>
+      <w3m-network-switch />
+      <w3m-core-button balance="hide" icon="hide" />
+    </div>
+  </div>
 
-<main class="container">
   <slot />
-</main>
+</div>

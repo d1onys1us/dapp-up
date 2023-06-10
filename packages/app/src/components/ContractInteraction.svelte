@@ -27,14 +27,18 @@
   }
 </script>
 
-<section>Note: Must be connected to local Foundry network (Anvil).</section>
 <section>
-  <input type="submit" value="Read message" on:click={readMessage} />
-  <div style="text-align: center">Message from contract: {messageFromContract}</div>
+  <button type="submit" class="btn" on:click={readMessage}>Read message</button>
+  <div>Message from contract: {messageFromContract}</div>
 </section>
 <section>
   <form>
-    <input type="text" placeholder="Enter some text..." bind:value={inputMessage} />
-    <input type="submit" value="Write" on:click={writeMessage} />
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      placeholder="Enter some text..."
+      bind:value={inputMessage}
+    />
+    <button type="submit" class="btn" on:click={writeMessage}>Write</button>
   </form>
 </section>
