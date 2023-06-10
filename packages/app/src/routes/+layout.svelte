@@ -10,6 +10,7 @@
   import { createPublicClient, http } from "viem";
 
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
+  console.log("projectId", projectId);
   const chains = [mainnet, sepolia, foundry, taiko];
 
   onMount(async () => {
@@ -40,7 +41,7 @@
       <li><a href="/another-page">Another page</a></li>
       <li><w3m-network-switch /></li>
       <li>
-        <w3m-core-button balance="show" icon="hide" />
+        <w3m-core-button balance="hide" icon="hide" />
       </li>
     </ul>
   </nav>
