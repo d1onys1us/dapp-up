@@ -38,9 +38,9 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
+      <li><a href="/mint">NFT Example</a></li>
     </ul>
     <ul>
-      <li><a href="/mint">mint</a></li>
       <li><w3m-network-switch /></li>
       <li>
         <w3m-core-button balance="hide" icon="hide" />
