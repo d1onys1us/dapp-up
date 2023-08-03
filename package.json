@@ -1,3 +1,10 @@
 {
-  "name": "dapp-slaps"
+  "name": "dapp-slaps",
+  "scripts": {
+    "node": "anvil -m \"$MNEMONIC\"",
+    "dev": "pnpm -F app dev:wagmi",
+    "deploy:local": "forge script Deploy --broadcast --rpc-url \"$FOUNDRY\"",
+    "deploy:taiko": "forge script Deploy --broadcast --rpc-url \"$TAIKO\" --verify --verifier blockscout --verifier-url https://explorer.test.taiko.xyz/api?",
+    "subgraph": "pnpm -F app subgraph:deploy"
+  }
 }

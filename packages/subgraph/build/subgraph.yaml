@@ -1,0 +1,30 @@
+specVersion: 0.0.5
+features:
+  - fullTextSearch
+  - nonFatalErrors
+schema:
+  file: schema.graphql
+dataSources:
+  - name: Diamonds
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      address: "0xd71E1099b3Ef66A6dd5bE094c192Cadf538a9bB7"
+      abi: Diamonds
+      startBlock: 956776
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Owner
+        - Contract
+        - Transfer
+      abis:
+        - name: Diamonds
+          file: Diamonds/abis/Diamonds.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: Diamonds/Diamonds.wasm

@@ -1,0 +1,18 @@
+{
+  "name": "subgraph",
+  "version": "1.0.0",
+  "description": "DiamondsNFT Subgraph",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:taiko": "graph create --node http://43.153.69.251:8020/ taiko/diamondsNFT && graph codegen && graph deploy --node http://43.153.69.251:8020/ --ipfs http://43.153.69.251:5001 taiko/diamondsNFT -l v0.0.1",
+    "test": "graph test"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.51.2",
+    "@graphprotocol/graph-ts": "0.31.0",
+    "mustache": "^4.2.0",
+    "matchstick-as": "^0.5.2"
+  }
+}

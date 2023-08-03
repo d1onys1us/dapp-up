@@ -12,6 +12,9 @@
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
   const chains = [baseGoerli, foundry, sepolia, taiko];
 
+  import { setContextClient } from "@urql/svelte";
+  import { client } from "../utils/graph";
+  setContextClient(client);
   onMount(async () => {
     const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
     const wagmiConfig = createConfig({
@@ -37,7 +40,7 @@
       <li><a href="/">Home</a></li>
     </ul>
     <ul>
-      <li><a href="/another-page">Another page</a></li>
+      <li><a href="/mint">mint</a></li>
       <li><w3m-network-switch /></li>
       <li>
         <w3m-core-button balance="hide" icon="hide" />
