@@ -15,7 +15,7 @@
   import { setContextClient } from "@urql/svelte";
   import { client } from "../utils/graph";
   setContextClient(client);
-  onMount(async () => {
+  onMount(() => {
     const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
     const wagmiConfig = createConfig({
       autoConnect: true,
@@ -50,5 +50,8 @@
 </header>
 
 <main class="container">
-  <slot />
+  <!-- Make sure ethereum Client is loaded before loading web3 components -->
+  {#if $ethereumClient}
+    <slot />
+  {/if}
 </main>

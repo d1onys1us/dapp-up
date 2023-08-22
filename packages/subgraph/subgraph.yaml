@@ -9,9 +9,9 @@ dataSources:
     kind: ethereum/contract
     network: mainnet
     source:
-      address: "0xf4703d57fd2b0f2349a8248af8dbbe5441d6c11b"
+      address: "0xaac37DebF13A0724f02a86a46C7ECb34AfcaA4dB"
       abi: Diamonds
-      startBlock: 1069721
+      startBlock: 1318166
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
