@@ -12,7 +12,10 @@
   const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
   const chains = [baseGoerli, foundry, sepolia, taiko];
 
-  onMount(async () => {
+  import { setContextClient } from "@urql/svelte";
+  import { client } from "../utils/graph";
+  setContextClient(client);
+  onMount(() => {
     const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
     const wagmiConfig = createConfig({
       autoConnect: true,
@@ -35,9 +38,9 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
+      <li><a href="/mint">NFT Example</a></li>
     </ul>
     <ul>
-      <li><a href="/another-page">Another page</a></li>
       <li><w3m-network-switch /></li>
       <li>
         <w3m-core-button balance="hide" icon="hide" />
@@ -47,5 +50,8 @@
 </header>
 
 <main class="container">
-  <slot />
+  <!-- Make sure ethereum Client is loaded before loading web3 components -->
+  {#if $ethereumClient}
+    <slot />
+  {/if}
 </main>

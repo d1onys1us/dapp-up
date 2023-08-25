@@ -1,15 +1,41 @@
 import { defineConfig } from "@wagmi/cli";
 import { foundry } from "@wagmi/cli/plugins";
-import * as viemChains from "viem/chains";
-import { taiko } from "./src/domain/chain";
+import fs from "fs";
 // this is an error if the contract has not been deployed yet, set specific contract address if needed
-import foundryJson from "../contracts/broadcast/Deploy.s.sol/31337/run-latest.json";
-import baseJson from "../contracts/broadcast/Deploy.s.sol/84531/run-latest.json";
-import taikoJson from "../contracts/broadcast/Deploy.s.sol/167005/run-latest.json";
-import { taikoL2ABI, signalServiceABI } from "./src/abi";
-import { Abi } from "abitype";
 
-const chains = { ...viemChains, taiko };
+function getDeployments(): { [x: string]: `0x${string}` | Record<number, `0x${string}`> | undefined } | undefined {
+  console.log("Read deployments");
+  const out: any = {};
+  // Get list of folders in deployments
+  const folders = fs.readdirSync("../contracts/broadcast/Deploy.s.sol");
+
+  folders.forEach((chain) => {
+
+    const json = JSON.parse(fs.readFileSync(`../contracts/broadcast/Deploy.s.sol/${chain}/run-latest.json`).toString());
+
+    // Iterate through 'contracts' object and create a ContractConfig for each contract
+    try {
+      for (let transaction of json.transactions) {
+        if (!out[transaction.contractName]) out[transaction.contractName] = {};
+        out[transaction.contractName][chain] = transaction.contractAddress;
+      };
+    } catch (e) {
+      console.error(e)
+    }
+  });
+  return out;
+  // loop through out and create a ContractConfig for each contract
+  // let contracts: ContractConfig<number, undefined>[] = []
+  // Object.keys(out).forEach((contractName) => {
+  //   contracts.push({
+  //     name: contractName,
+  //     address: out[contractName].address,
+  //     abi: out[contractName].abi,
+  //   });
+  // });
+  // return contracts;
+}
+
 
 export default defineConfig({
   out: "src/generated.ts",
@@ -36,14 +62,9 @@ export default defineConfig({
   // Pull ABI from Foundry deployment
   plugins: [
     foundry({
-      deployments: {
-        Foo: {
-          [chains.foundry.id]: foundryJson.transactions[0].contractAddress as `0x${string}`,
-          [chains.baseGoerli.id]: baseJson.transactions[0].contractAddress as `0x${string}`,
-          [chains.taiko.id]: taikoJson.transactions[0].contractAddress as `0x${string}`,
-        },
-      },
-      project: "../../",
+      deployments: getDeployments(),
+      project: "../contracts",
+      artifacts: './out',
     }),
   ],
 });

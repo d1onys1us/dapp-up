@@ -1,0 +1,20 @@
+{
+  "name": "subgraph",
+  "version": "1.0.0",
+  "description": "DiamondsNFT Subgraph",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "start": "docker-compose up -d",
+    "deploy:taiko": "graph create --node http://43.153.91.121:8020/ replace_subgraph_name && graph codegen && graph deploy --node http://43.153.91.121:8020/ --ipfs http://43.153.91.121:5001 replace_subgraph_name -l v0.0.1",
+    "deploy:local": "graph create --node http://localhost:8020/ replace_subgraph_name && graph codegen && graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 replace_subgraph_name -l v0.0.1",
+    "test": "graph test"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.51.2",
+    "@graphprotocol/graph-ts": "0.31.0",
+    "mustache": "^4.2.0",
+    "matchstick-as": "^0.5.2"
+  }
+}
