@@ -4,8 +4,8 @@
     "new-wallet": "cast wallet new | tee /dev/tty | grep 'Private key:' | awk '{print \"export PRIVATE_KEY=\"$3}' >> .env && source .env",
     "node": "anvil -m \"$MNEMONIC\"",
     "dev": "pnpm -F app dev:wagmi",
-    "deploy:local": "forge script Deploy --broadcast --rpc-url \"$FOUNDRY\"",
-    "deploy:taiko": "forge script Deploy --rpc-url \"$TAIKO\" --private-key=$PRIVATE_KEY --broadcast --verify --verifier blockscout --verifier-url https://explorer.test.taiko.xyz/api?",
+    "deploy:local": "source .env && forge script Deploy --broadcast --rpc-url \"$FOUNDRY\"",
+    "deploy:taiko": "source .env && forge script Deploy --rpc-url \"$TAIKO\" --private-key=$PRIVATE_KEY --broadcast --verify --verifier blockscout --verifier-url https://explorer.test.taiko.xyz/api?",
     "subgraph:taiko": "pnpm -F subgraph deploy:taiko",
     "subgraph:local": "pnpm -F subgraph deploy:local",
     "subgraph:start": "pnpm -F subgraph start"
