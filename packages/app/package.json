@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite dev",
     "dev:foundry": "source ../../.env && vite dev && wagmi generate --watch && anvil -m $MNEMONIC",
-    "dev:wagmi": "vite dev && wagmi generate --watch",
+    "dev:wagmi": "wagmi generate && vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
