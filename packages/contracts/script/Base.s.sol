@@ -16,11 +16,11 @@ abstract contract BaseScript is Script {
     address internal deployer;
 
     /// @dev Used to derive the deployer's address.
-    string internal mnemonic;
+    uint256 internal key;
 
     constructor() {
-        mnemonic = vm.envOr("MNEMONIC", TEST_MNEMONIC);
-        (deployer,) = deriveRememberKey({mnemonic: mnemonic, index: 0});
+        key = vm.envUint("PRIVATE_KEY");
+        deployer = vm.rememberKey(key);
     }
 
     modifier broadcaster() {
