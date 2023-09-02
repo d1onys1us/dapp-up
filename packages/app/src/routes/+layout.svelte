@@ -14,6 +14,7 @@
 
   import { setContextClient } from "@urql/svelte";
   import { client } from "../utils/graph";
+
   setContextClient(client);
   onMount(() => {
     const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
