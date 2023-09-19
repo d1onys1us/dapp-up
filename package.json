@@ -5,7 +5,7 @@
     "node": "anvil -m \"$MNEMONIC\"",
     "dev": "pnpm -F app dev:wagmi",
     "deploy:local": "source .env && forge script Deploy --broadcast --rpc-url \"$FOUNDRY\"",
-    "deploy:taiko": "source .env && forge script Deploy --rpc-url \"$TAIKO\" --private-key=$PRIVATE_KEY --broadcast --verify --verifier blockscout --verifier-url https://explorer.test.taiko.xyz/api?",
+    "deploy:taiko": "source .env && forge script Deploy --rpc-url \"$TAIKO\" --private-key=$PRIVATE_KEY --broadcast",
     "subgraph:taiko": "pnpm -F subgraph deploy:taiko",
     "subgraph:local": "pnpm -F subgraph deploy:local",
     "subgraph:start": "pnpm -F subgraph start"

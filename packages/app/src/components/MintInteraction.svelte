@@ -9,7 +9,7 @@
     const chainId = $ethereumClient.getNetwork().chain?.id ?? foundry.id;
 
     const config = await prepareWriteContract({
-      address: diamondsAddress[(chainId as 31337) || 84531 || 167005],
+      address: diamondsAddress[(chainId as 31337) || 84531 || 167007],
       abi: diamondsABI,
       functionName: "mint",
       args: [BigInt(1)],
