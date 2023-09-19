@@ -13,7 +13,7 @@
     const chainId = $ethereumClient.getNetwork().chain?.id ?? foundry.id;
 
     const data = await readContract({
-      address: fooAddress[(chainId as 31337) || 84531 || 167005],
+      address: fooAddress[(chainId as 31337) || 84531 || 167007],
       abi: fooABI,
       functionName: "myString",
     });
@@ -25,7 +25,7 @@
     const chainId = $ethereumClient.getNetwork().chain?.id ?? foundry.id;
 
     const config = await prepareWriteContract({
-      address: fooAddress[(chainId as 31337) || 84531 || 167005],
+      address: fooAddress[(chainId as 31337) || 84531 || 167007],
       abi: fooABI,
       functionName: "setMyString",
       args: [inputMessage],
