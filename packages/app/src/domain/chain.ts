@@ -1,9 +1,9 @@
 import type { Chain } from "viem/chains";
 
 export const taiko = {
-  id: 167005,
+  id: 167007,
   name: "Taiko",
-  network: "alpha-3",
+  network: "alpha-5",
   nativeCurrency: {
     name: "Ether",
     symbol: "ETH",
@@ -11,16 +11,16 @@ export const taiko = {
   },
   rpcUrls: {
     public: {
-      http: ["https://rpc.test.taiko.xyz"],
+      http: ["https://rpc.jolnir.taiko.xyz"],
     },
     default: {
-      http: ["https://rpc.test.taiko.xyz"],
+      http: ["https://rpc.jolnir.taiko.xyz"],
     },
   },
   blockExplorers: {
     default: {
       name: "blockscout",
-      url: "https://explorer.test.taiko.xyz",
+      url: "https://explorer.jolnir.taiko.xyz",
     },
   },
   testnet: true,
